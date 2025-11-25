@@ -42,10 +42,3 @@ make install       # Install system-wide
 ./build/bin/binlog_stream config/config.json
 ```
 
-## Plugin Development
-
-See [PLUGIN_DEVELOPMENT.md](PLUGIN_DEVELOPMENT.md) for details on creating custom publishers.
-
-## Configuration
-
-See [CONFIGURATION.md](CONFIGURATION.md) for configuration options.
