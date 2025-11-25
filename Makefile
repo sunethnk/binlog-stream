@@ -5,6 +5,12 @@ CC = gcc
 CFLAGS = -O2 -Wall -fPIC -Isrc/include
 CFLAGS += -DDEVELOPER_MODE 
 CFLAGS += -DLOG_USE_COLOR
+GIT_HASH  := $(shell git rev-parse --short HEAD)
+BUILD_TS  := $(shell date +%Y-%m-%dT%H:%M:%S)
+CFLAGS += -DBINLOG_STREAMER_VERSION=\"1.0.0\" \
+          -DBINLOG_STREAMER_BUILD=\"$(BUILD_TS)-$(GIT_HASH)\"
+CFLAGS += -DBANNER_STYLE=2
+
 LDFLAGS = -rdynamic -lmysqlclient -lz -luuid -ljson-c -lpthread -ldl
 
 # Directory structure
@@ -46,7 +52,8 @@ JAVA_LIBS = -L$(JAVA_HOME)/lib/server -ljvm -Wl,-rpath,$(JAVA_HOME)/lib/server
 CORE_TARGET = $(BIN_DIR)/binlog_stream
 CORE_SOURCES = $(CORE_DIR)/binlog_stream_modular.c \
                $(CORE_DIR)/publisher_loader.c \
-               $(CORE_DIR)/logger.c
+               $(CORE_DIR)/logger.c \
+	       $(CORE_DIR)/banner.c
 CORE_OBJECTS = $(patsubst $(CORE_DIR)/%.c,$(OBJ_DIR)/core/%.o,$(CORE_SOURCES))
 
 # Publisher plugins

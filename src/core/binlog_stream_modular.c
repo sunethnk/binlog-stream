@@ -22,6 +22,7 @@
 #include <pthread.h>
 #include <errno.h>
 #include <ctype.h>
+#include "banner.h"
 
 #include "logger.h"
 #include "publisher_loader.h"
@@ -2207,7 +2208,7 @@ int main(int argc, char **argv){
         fprintf(stderr, "Usage: %s config.json\n", argv[0]);
         return 1;
     }
-
+    binlog_print_banner();
     if(load_config(argv[1], &g_config) != 0) {
         fprintf(stderr, "Failed to load configuration\n");
         return 1;
