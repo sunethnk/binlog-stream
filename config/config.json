@@ -110,7 +110,7 @@
         {
             "plugin": {
                 "name": "file_output",
-                "active": true,
+                "active": false,
                 "library_path": "./build/lib/file_publisher.so",
                 "max_queu_depth": 1024,
                 "publish_databases": [
@@ -139,6 +139,21 @@
                     "endpoint": "tcp://*:5557",
                     "send_timeout_ms": "1000",
                     "subscriber_filtering": true
+                }
+            }
+        },
+        {
+            "plugin": {
+                "name": "udp_publisher",
+                "active": true,
+                "library_path": "./build/lib/udp_publisher.so",
+                "max_queu_depth": 1024,
+                "publish_databases": [],
+                "config": {
+                    "udp_host": "127.0.0.1",
+                    "udp_port": 9999,
+                    "max_packet_size": 65507,
+                    "add_newline": true
                 }
             }
         },

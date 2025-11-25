@@ -59,7 +59,7 @@ CORE_OBJECTS = $(patsubst $(CORE_DIR)/%.c,$(OBJ_DIR)/core/%.o,$(CORE_SOURCES))
 # Publisher plugins
 PLUGIN_NAMES = file_publisher zmq_publisher kafka_publisher example_publisher \
                webhook_publisher syslog_publisher redis_publisher lua_publisher \
-               python_publisher java_publisher
+               python_publisher java_publisher udp_publisher
 PLUGIN_TARGETS = $(addprefix $(LIB_DIR)/,$(addsuffix .so,$(PLUGIN_NAMES)))
 JAVA_CLASS = $(SCRIPTS_DIR)/plugin-examples/JavaPublisher.class
 
@@ -127,6 +127,11 @@ $(LIB_DIR)/java_publisher.so: $(PLUGIN_DIR)/java_publisher.c $(INCLUDE_DIR)/publ
 	@echo "Built plugin: $@"
 
 $(LIB_DIR)/example_publisher.so: $(PLUGIN_DIR)/example_publisher.c $(INCLUDE_DIR)/publisher_api.h
+	@mkdir -p $(LIB_DIR)
+	$(CC) $(CFLAGS) -shared -o $@ $<
+	@echo "Built plugin: $@"
+	
+$(LIB_DIR)/udp_publisher.so: $(PLUGIN_DIR)/udp_publisher.c $(INCLUDE_DIR)/publisher_api.h
 	@mkdir -p $(LIB_DIR)
 	$(CC) $(CFLAGS) -shared -o $@ $<
 	@echo "Built plugin: $@"
