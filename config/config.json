@@ -1,0 +1,245 @@
+{
+    "logging": {
+        "level": "INFO",
+        "stdout": "TRACE",
+        "log_file": "/var/log/binlog_stream.log"
+    },
+    "master_server": {
+        "host": "10.211.55.10",
+        "port": 3306,
+        "username": "repl",
+        "password": "repl",
+        "timezone": "+00:00"
+    },
+    "replication": {
+        "server_id": 100,
+        "binlog_file": "current",
+        "binlog_position": 4,
+        "save_last_position": true,
+        "save_position_event_count": 1000,
+        "checkpoint_file":"./data/binlog_checkpoint.dat"
+    },
+    "capture": {
+        "databases": [
+            {
+                "radius": {
+                    "capture_dml": true,
+                    "capture_ddl": true,
+                    "tables": [
+                        {
+                            "bb_states": {
+                                "primary_key": [
+                                    "state_id"
+                                ],
+                                "columns": [
+                                    "*"
+                                ]
+                            }
+                        },
+                        {
+                            "test_table": {
+                                "primary_key": [
+                                    "id"
+                                ],
+                                "columns": [
+                                    "*"
+                                ]
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "scheduler": {
+                    "capture_dml": true,
+                    "capture_ddl": false,
+                    "tables": [
+                        {
+                            "policy_script": {
+                                "primary_key": [
+                                    "id"
+                                ],
+                                "columns": [
+                                    "*"
+                                ]
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "test": {
+                    "capture_dml": true,
+                    "capture_ddl": true,
+                    "tables": [
+                        {
+                            "test_table": {
+                                "primary_key": [
+                                    "id"
+                                ],
+                                "columns": [
+                                    "*"
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "publishers": [
+        {
+            "plugin": {
+                "name": "example",
+                "active": false,
+                "library_path": "./build/lib/example_publisher.so",
+                "publish_databases": [
+                    "radius",
+                    "scheduler"
+                ],
+                "config": {
+                    "example_data": "this is a sample"
+                }
+            }
+        },
+        {
+            "plugin": {
+                "name": "file_output",
+                "active": false,
+                "library_path": "./build/lib/file_publisher.so",
+                "publish_databases": [
+                    "radius",
+                    "scheduler",
+                    "test"
+                ],
+                "config": {
+                    "file_path": "/var/log/cdc_events.jsonl",
+                    "flush_every_event": "1"
+                }
+            }
+        },
+        {
+            "plugin": {
+                "name": "zmq_stream",
+                "active": false,
+                "library_path": "./build/lib/zmq_publisher.so",
+                "publish_databases": [
+                    "radius"
+                ],
+                "config": {
+                    "endpoint": "tcp://*:5557",
+                    "send_timeout_ms": "1000",
+                    "subscriber_filtering": true
+                }
+            }
+        },
+        {
+            "plugin": {
+                "name": "kafka_producer",
+                "active": false,
+                "library_path": "./build/lib/kafka_publisher.so",
+                "publish_databases": [],
+                "config": {
+                    "bootstrap_servers": "localhost:9092",
+                    "topic_per_table": false,
+                    "topic_prefix": "cdc_events",
+                    "compression": "snappy"
+                }
+            }
+        },
+        {
+            "plugin": {
+                "name": "redis_publisher",
+                "active": false,
+                "library_path": "./build/lib/redis_publisher.so",
+                "publish_databases": [],
+                "config": {
+                    "host": "localhost",
+                    "port": 6379,
+                    "password": "",
+                    "use_streams": true,
+                    "stream_prefix": "cdc:",
+                    "channel": "cdc_events"
+                }
+            }
+        },
+        {
+            "plugin": {
+                "name": "webhook_publisher",
+                "active": false,
+                "library_path": "./build/lib/webhook_publisher.so",
+                "publish_databases": [],
+                "config": {
+                    "webhook_url": "http://localhost:5000/webhook/cdc",
+                    "auth_token": "",
+                    "retry_count": 3,
+                    "timeout_seconds": 10
+                }
+            }
+        },
+        {
+            "plugin": {
+                "name": "syslog_publisher",
+                "active": false,
+                "library_path": "./build/lib/syslog_publisher.so",
+                "config": {
+                    "ident": "cdc_events",
+                    "facility": "LOG_USER",
+                    "priority": "LOG_DEBUG",
+                    "include_pid": true,
+                    "format_compact": false
+                }
+            }
+        },
+        {
+            "plugin": {
+                "name": "lua_publisher",
+                "active": false,
+                "library_path": "./build/lib/lua_publisher.so",
+                "config": {
+                    "lua_script": "publish.lua",
+                    "on_event_method": "on_event",
+                    "on_init_method": "on_init",
+                    "on_start_method": "on_start",
+                    "on_stop_method": "on_stop",
+                    "on_cleanup_method": "on_cleanup",
+                    "on_health_method": "on_health"
+                }
+            }
+        },
+        {
+            "plugin": {
+                "name": "python_publisher",
+                "active": false,
+                "library_path": "./build/lib/python_publisher.so",
+                "config": {
+                    "python_script": "publish.py",
+                    "on_event_method": "on_event",
+                    "on_init_method": "on_init",
+                    "on_start_method": "on_start",
+                    "on_stop_method": "on_stop",
+                    "on_cleanup_method": "on_cleanup",
+                    "on_health_method": "on_health"
+                }
+            }
+        },
+        {
+            "plugin": {
+                "name": "java_publisher",
+                "active": true,
+                "library_path": "./build/lib/java_publisher.so",
+                "config": {
+                    "jvm_args": "-Xms128m -Xmx512m -XX:+UseG1GC",
+                    "java_class": "JavaPublisher",
+                    "java_classpath": ".:./scripts/plugin-examples",
+                    "on_event_method": "onEvent",
+                    "on_init_method": "onInit",
+                    "on_start_method": "onStart",
+                    "on_stop_method": "onStop",
+                    "on_cleanup_method": "onCleanup",
+                    "on_health_method": "onHealth"
+                }
+            }
+        }
+    ]
+}

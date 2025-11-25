@@ -1,0 +1,37 @@
+# Build artifacts
+build/
+*.o
+*.so
+*.a
+*.class
+
+# Runtime data
+data/binlog_checkpoint.dat
+data/*.log
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyc
+
+# IDE
+.vscode/
+.idea/
+nbproject/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+*.tmp
+*.bak
+*.old
