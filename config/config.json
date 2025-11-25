@@ -2,7 +2,9 @@
     "logging": {
         "level": "INFO",
         "stdout": "TRACE",
-        "log_file": "/var/log/binlog_stream.log"
+        "log_file": "/var/log/binlog_stream.log",
+        "max_file_size": 12328960,
+        "max_files": 10
     },
     "master_server": {
         "host": "10.211.55.10",
@@ -13,11 +15,11 @@
     },
     "replication": {
         "server_id": 100,
-        "binlog_file": "current",
-        "binlog_position": 4,
+        "binlog_file": "mysql-bin.000001",
+        "binlog_position": 8475,
         "save_last_position": true,
         "save_position_event_count": 1000,
-        "checkpoint_file":"./data/binlog_checkpoint.dat"
+        "checkpoint_file": "./data/binlog_checkpoint.dat"
     },
     "capture": {
         "databases": [
@@ -78,7 +80,9 @@
                                     "id"
                                 ],
                                 "columns": [
-                                    "*"
+                                    "id",
+                                    "name",
+                                    "created_at"
                                 ]
                             }
                         }
@@ -93,6 +97,7 @@
                 "name": "example",
                 "active": false,
                 "library_path": "./build/lib/example_publisher.so",
+                "max_queu_depth": 1024,
                 "publish_databases": [
                     "radius",
                     "scheduler"
@@ -107,6 +112,7 @@
                 "name": "file_output",
                 "active": false,
                 "library_path": "./build/lib/file_publisher.so",
+                "max_queu_depth": 1024,
                 "publish_databases": [
                     "radius",
                     "scheduler",
@@ -123,6 +129,7 @@
                 "name": "zmq_stream",
                 "active": false,
                 "library_path": "./build/lib/zmq_publisher.so",
+                "max_queu_depth": 1024,
                 "publish_databases": [
                     "radius"
                 ],
@@ -138,6 +145,7 @@
                 "name": "kafka_producer",
                 "active": false,
                 "library_path": "./build/lib/kafka_publisher.so",
+                "max_queu_depth": 1024,
                 "publish_databases": [],
                 "config": {
                     "bootstrap_servers": "localhost:9092",
@@ -152,6 +160,7 @@
                 "name": "redis_publisher",
                 "active": false,
                 "library_path": "./build/lib/redis_publisher.so",
+                "max_queu_depth": 1024,
                 "publish_databases": [],
                 "config": {
                     "host": "localhost",
@@ -168,6 +177,7 @@
                 "name": "webhook_publisher",
                 "active": false,
                 "library_path": "./build/lib/webhook_publisher.so",
+                "max_queu_depth": 1024,
                 "publish_databases": [],
                 "config": {
                     "webhook_url": "http://localhost:5000/webhook/cdc",
@@ -182,6 +192,8 @@
                 "name": "syslog_publisher",
                 "active": false,
                 "library_path": "./build/lib/syslog_publisher.so",
+                "max_queu_depth": 1024,
+                "publish_databases": [],
                 "config": {
                     "ident": "cdc_events",
                     "facility": "LOG_USER",
@@ -196,6 +208,8 @@
                 "name": "lua_publisher",
                 "active": false,
                 "library_path": "./build/lib/lua_publisher.so",
+                "max_queu_depth": 1024,
+                "publish_databases": [],
                 "config": {
                     "lua_script": "publish.lua",
                     "on_event_method": "on_event",
@@ -212,6 +226,8 @@
                 "name": "python_publisher",
                 "active": false,
                 "library_path": "./build/lib/python_publisher.so",
+                "max_queu_depth": 1024,
+                "publish_databases": [],
                 "config": {
                     "python_script": "publish.py",
                     "on_event_method": "on_event",
@@ -228,6 +244,8 @@
                 "name": "java_publisher",
                 "active": true,
                 "library_path": "./build/lib/java_publisher.so",
+                "max_queu_depth": 1024,
+                "publish_databases": [],
                 "config": {
                     "jvm_args": "-Xms128m -Xmx512m -XX:+UseG1GC",
                     "java_class": "JavaPublisher",

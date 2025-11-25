@@ -223,16 +223,46 @@ static void rotate_files(log_file_t *lf) {
   char oldname[512];
   char newname[512];
 
+//  /* Shift existing rotated files: path.(n-1) -> path.n */
+//  for (int i = lf->max_files - 1; i >= 1; i--) {
+//    snprintf(oldname, sizeof(oldname), "%s.%d", lf->path, i - 1);
+//    snprintf(newname, sizeof(newname), "%s.%d", lf->path, i);
+//    rename(oldname, newname); /* ignore errors */
+//  }
+  
   /* Shift existing rotated files: path.(n-1) -> path.n */
-  for (int i = lf->max_files - 1; i >= 1; i--) {
-    snprintf(oldname, sizeof(oldname), "%s.%d", lf->path, i - 1);
-    snprintf(newname, sizeof(newname), "%s.%d", lf->path, i);
-    rename(oldname, newname); /* ignore errors */
-  }
+    for (int i = lf->max_files - 1; i >= 1; i--) {
+
+        /* leave room for ".<index>\0" — assume max 10 digits */
+        size_t space = sizeof(oldname);
+        size_t max_base = space - 12;  // '.' + up to 10 digits + '\0'
+
+        size_t plen = strnlen(lf->path, sizeof(lf->path));
+        if (plen > max_base) plen = max_base;
+
+        /* oldname = "path.(i-1)" */
+        snprintf(oldname, sizeof(oldname), "%.*s.%d",
+                 (int)plen, lf->path, i - 1);
+
+        /* newname = "path.i" */
+        snprintf(newname, sizeof(newname), "%.*s.%d",
+                 (int)plen, lf->path, i);
+
+        rename(oldname, newname); /* ignore errors */
+    }
+
 
   /* Move current base file to .0 */
-  snprintf(oldname, sizeof(oldname), "%s", lf->path);
-  snprintf(newname, sizeof(newname), "%s.%d", lf->path, 0);
+  size_t maxo = sizeof(oldname) - 4; // '.', digit, '\0'
+  snprintf(oldname, sizeof(oldname), "%.*s.%d",
+         (int)maxo, lf->path, 0);
+  //snprintf(oldname, sizeof(oldname), "%s", lf->path);
+  
+  size_t maxn = sizeof(newname) - 4; // '.', digit, '\0'
+  snprintf(newname, sizeof(newname), "%.*s.%d",
+         (int)maxn, lf->path, 0);
+  
+  //snprintf(newname, sizeof(newname), "%s.%d", lf->path, 0);
   rename(oldname, newname); /* ignore errors */
 
   /* Reopen base log file */

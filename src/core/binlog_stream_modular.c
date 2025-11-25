@@ -106,6 +106,8 @@ typedef struct {
 typedef struct {
     const char *log_level;
     const char *stdout_level;
+    int max_log_count;
+    uint64_t max_file_size;
     char log_file[512];
     FILE *log_fp;
 
@@ -337,6 +339,8 @@ static int load_config(const char *filename, config_t *cfg) {
     cfg->server_id = 1;
     cfg->binlog_position = 4;
     cfg->save_position_event_count = 0;
+    cfg->max_log_count = 10;
+    cfg->max_file_size = 10 * 1024 * 1024;
     strcpy(cfg->checkpoint_file, "binlog_checkpoint.dat");
 
     FILE *fp = fopen(filename, "r");
@@ -355,7 +359,16 @@ static int load_config(const char *filename, config_t *cfg) {
         return -1;
     }
 
-    fread(content, 1, size, fp);
+    //fread(content, 1, size, fp);
+    size_t nread = fread(content, 1, size, fp);
+    if (nread != size) {
+        // Handle error or EOF – depending on your needs
+        // You can log it, or fail the config load.
+        log_error("config: expected %zu bytes, got %zu", size, nread);
+        free(content);
+        fclose(fp);
+        return -1;
+    }
     content[size] = '\0';
     fclose(fp);
 
@@ -381,6 +394,11 @@ static int load_config(const char *filename, config_t *cfg) {
         if(stdout_level) {
             cfg->stdout_level = json_object_get_string(stdout_level);
         }
+        json_object *max_log_count = json_object_object_get(logging, "max_files");
+        if(max_log_count) cfg->max_log_count = json_object_get_int(max_log_count);
+        
+        json_object *max_file_size = json_object_object_get(logging, "max_file_size");
+        if(max_file_size) cfg->max_file_size = json_object_get_uint64(max_file_size);
     }
 
     json_object *master = json_object_object_get(root, "master_server");
@@ -557,6 +575,7 @@ static int load_config(const char *filename, config_t *cfg) {
                 json_object *name_obj = json_object_object_get(plugin_obj, "name");
                 json_object *lib_obj = json_object_object_get(plugin_obj, "library_path");
                 json_object *active_obj = json_object_object_get(plugin_obj, "active");
+                json_object *max_queu_obj = json_object_object_get(plugin_obj, "max_queu_depth");
                 
                 if (!name_obj || !lib_obj) {
                     log_warn("Plugin missing required fields (name, library_path)");
@@ -566,12 +585,12 @@ static int load_config(const char *filename, config_t *cfg) {
                 const char *name = json_object_get_string(name_obj);
                 const char *lib_path = json_object_get_string(lib_obj);
                 int active = active_obj ? json_object_get_boolean(active_obj) : 1;
-                
+                uint64_t qdepth = max_queu_obj ? json_object_get_uint64(max_queu_obj) : 1024;
                 // Build publisher_config_t
                 publisher_config_t config = {0};
                 config.name = name;
                 config.active = active;
-                
+                config.max_q_depth = qdepth;
                 // Parse database filter
                 json_object *pub_dbs = json_object_object_get(plugin_obj, "publish_databases");
                 if (pub_dbs && json_object_is_type(pub_dbs, json_type_array)) {
@@ -588,6 +607,7 @@ static int load_config(const char *filename, config_t *cfg) {
                 json_object *config_obj = json_object_object_get(plugin_obj, "config");
                 if (config_obj && json_object_is_type(config_obj, json_type_object)) {
                     json_object_object_foreach(config_obj, key, val) {
+                        (void) key;
                         config.config_count++;
                     }
                     
@@ -982,8 +1002,10 @@ static void parse_table_map(const unsigned char *p, uint32_t len){
     uint32_t ncols = (uint32_t)ncols64;
     
     g_map.table_id = tid;
-    strncpy(g_map.db, new_db, sizeof(g_map.db) - 1);
-    strncpy(g_map.tbl, new_tbl, sizeof(g_map.tbl) - 1);
+    //strncpy(g_map.db, new_db, sizeof(g_map.db) - 1);
+    //strncpy(g_map.tbl, new_tbl, sizeof(g_map.tbl) - 1);
+    snprintf(g_map.db,  sizeof(g_map.db),  "%s", new_db);
+    snprintf(g_map.tbl, sizeof(g_map.tbl), "%s", new_tbl);
 
     if(!should_capture_table(new_db, new_tbl)) {
         log_debug("TABLE_MAP tid=%llu db='%s' table='%s' - IGNORED (not in capture list)",
@@ -2203,8 +2225,8 @@ int main(int argc, char **argv){
     log_set_level(parse_log_level(g_config.stdout_level));
     if (log_add_rotating_file(&main_log,
                               g_config.log_file,
-                              10 * 1024 * 1024,
-                              5,
+                              g_config.max_file_size,
+                              g_config.max_log_count,
                               parse_log_level(g_config.log_level)) != 0) {
         fprintf(stderr, "Failed to open rotating log file\n");
     }
@@ -2267,7 +2289,8 @@ int main(int argc, char **argv){
 
     if(restore_position(start_file, &start_pos) != 0) {
         if(g_config.binlog_file[0]) {
-            strncpy(start_file, g_config.binlog_file, sizeof(start_file) - 1);
+            //strncpy(start_file, g_config.binlog_file, sizeof(start_file) - 1);
+            snprintf(start_file, sizeof(start_file), "%s", g_config.binlog_file);
             start_pos = g_config.binlog_position;
         } else {
             if(get_master_position(m, start_file, sizeof(start_file), &start_pos) != 0){

@@ -34,7 +34,7 @@ struct cdc_event {
 struct publisher_config {
     const char *name;         // Publisher name
     int active;               // Is publisher active?
-    
+    uint64_t max_q_depth;
     // Database filtering
     char **databases;         // Array of database names to publish
     int db_count;             // Number of databases in filter

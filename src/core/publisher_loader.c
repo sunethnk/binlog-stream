@@ -181,10 +181,18 @@ static void cdc_event_free(cdc_event_t *e) {
 
 // Queue management
 static int queue_init(publisher_instance_t *inst) {
-    inst->queue = calloc(PUBLISHER_QUEUE_CAPACITY, sizeof(cdc_event_t*));
+    log_trace("Initializing queue for %s",inst->name);
+    if(inst->q_capacity > 0){
+        inst->queue = calloc(inst->q_capacity, sizeof(cdc_event_t*));
+        inst->q_capacity = inst->q_capacity;
+    } else {
+        inst->queue = calloc(PUBLISHER_QUEUE_CAPACITY, sizeof(cdc_event_t*));
+        inst->q_capacity = PUBLISHER_QUEUE_CAPACITY;
+    }
+    log_trace("Queue depth set for %s is %d", inst->name, inst->q_capacity);
     if (!inst->queue) return -1;
     
-    inst->q_capacity = PUBLISHER_QUEUE_CAPACITY;
+    
     inst->q_head = inst->q_tail = inst->q_count = 0;
     inst->q_stop = 0;
     
@@ -299,6 +307,8 @@ int publisher_manager_load_plugin(
     inst->config.config_count = 0;  // Will be set after successful copy
     inst->config.config_keys = NULL;
     inst->config.config_values = NULL;
+
+    inst->q_capacity =  config->max_q_depth > 0 ? config->max_q_depth : PUBLISHER_QUEUE_CAPACITY; 
     
     // Deep copy database list
     if (config->db_count > 0 && config->databases) {

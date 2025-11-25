@@ -2,7 +2,7 @@
 # Updated for organized folder structure
 
 CC = gcc
-CFLAGS = -O2 -Wall -fPIC -Isrc/include 
+CFLAGS = -O2 -Wall -fPIC -Isrc/include
 CFLAGS += -DDEVELOPER_MODE 
 CFLAGS += -DLOG_USE_COLOR
 LDFLAGS = -rdynamic -lmysqlclient -lz -luuid -ljson-c -lpthread -ldl
