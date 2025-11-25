@@ -110,7 +110,7 @@
         {
             "plugin": {
                 "name": "file_output",
-                "active": false,
+                "active": true,
                 "library_path": "./build/lib/file_publisher.so",
                 "max_queu_depth": 1024,
                 "publish_databases": [
@@ -120,7 +120,9 @@
                 ],
                 "config": {
                     "file_path": "/var/log/cdc_events.jsonl",
-                    "flush_every_event": "1"
+                    "flush_every_event": 1,
+                    "rotate_max_events": 10,
+                    "rotate_max_files": 10
                 }
             }
         },
@@ -242,7 +244,7 @@
         {
             "plugin": {
                 "name": "java_publisher",
-                "active": true,
+                "active": false,
                 "library_path": "./build/lib/java_publisher.so",
                 "max_queu_depth": 1024,
                 "publish_databases": [],
