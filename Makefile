@@ -227,6 +227,67 @@ config:
 	@echo "  JAVA_HOME: $(JAVA_HOME)"
 	@echo "  CFLAGS: $(JAVA_CFLAGS)"
 
+# Install build dependencies (Ubuntu/RHEL)
+install-deps:
+	@echo "==> Detecting OS and installing build dependencies..."
+	@if [ -f /etc/os-release ]; then \
+	  . /etc/os-release; \
+	  echo "Detected OS: $$ID ($$NAME $$VERSION_ID)"; \
+	  case "$$ID" in \
+	    ubuntu|debian) \
+	      echo "==> Installing packages for Ubuntu/Debian..."; \
+	      sudo apt-get update && sudo apt-get install -y \
+	        build-essential git pkg-config \
+	        default-libmysqlclient-dev libjson-c-dev zlib1g-dev \
+	        liblua5.3-dev python3-dev \
+	        openjdk-17-jdk \
+	        libzmq3-dev librdkafka-dev libcurl4-openssl-dev libhiredis-dev \
+	        uuid-dev tree; \
+	      ;; \
+	    rhel|centos|rocky|almalinux|ol) \
+	      echo "==> Installing packages for RHEL/CentOS/Rocky/Alma..."; \
+	      sudo dnf install -y epel-release || sudo yum install -y epel-release || true; \
+	      sudo dnf install -y \
+	        gcc gcc-c++ make git pkgconfig \
+	        mariadb-connector-c-devel json-c-devel zlib-devel \
+	        lua-devel python3-devel \
+	        java-11-openjdk-devel \
+	        zeromq-devel librdkafka-devel libcurl-devel hiredis-devel \
+	        libuuid-devel tree || \
+	      sudo yum install -y \
+	        gcc gcc-c++ make git pkgconfig \
+	        mariadb-connector-c-devel json-c-devel zlib-devel \
+	        lua-devel python3-devel \
+	        java-11-openjdk-devel \
+	        zeromq-devel librdkafka-devel libcurl-devel hiredis-devel \
+	        libuuid-devel tree; \
+	      ;; \
+	    *) \
+	      echo "!! Unsupported or unknown distro ID: $$ID"; \
+	      echo "   Please install the following build dependencies manually:"; \
+	      echo "   - Compiler & tools: gcc/g++, make, git, pkg-config"; \
+	      echo "   - MySQL client dev: libmysqlclient-dev or mariadb-connector-c-devel"; \
+	      echo "   - JSON-C dev      : libjson-c-dev or json-c-devel"; \
+	      echo "   - Zlib dev        : zlib1g-dev or zlib-devel"; \
+	      echo "   - Lua dev         : liblua5.3-dev or lua-devel"; \
+	      echo "   - Python dev      : python3-dev or python3-devel"; \
+	      echo "   - Java dev (JDK)  : openjdk-11/17-devel"; \
+	      echo "   - ZeroMQ dev      : libzmq3-dev or zeromq-devel"; \
+	      echo "   - Kafka client    : librdkafka-dev"; \
+	      echo "   - cURL dev        : libcurl4-openssl-dev or libcurl-devel"; \
+	      echo "   - Hiredis dev     : libhiredis-dev or hiredis-devel"; \
+	      echo "   - UUID dev        : uuid-dev or libuuid-devel"; \
+	      exit 1; \
+	      ;; \
+	  esac; \
+	else \
+	  echo "!! /etc/os-release not found. Cannot detect OS."; \
+	  echo "   Please install the required build dependencies manually."; \
+	  exit 1; \
+	fi
+	@echo "==> Dependency installation finished."
+
+
 # Show current structure
 tree:
 	@echo "Current directory structure:"
@@ -252,12 +313,13 @@ help:
 	@echo "  test-python      - Test Python publisher"
 	@echo "  config           - Show build configuration"
 	@echo "  tree             - Show directory structure"
-	@echo "  help             - Show this help"
+	@echo "  install-deps     - Detect OS and install build dependencies (Ubuntu/RHEL)"
 	@echo ""
 	@echo "Variables:"
 	@echo "  LUA_VERSION      - Lua version (default: $(LUA_VERSION))"
 	@echo "  PYTHON_VERSION   - Python version (default: $(PYTHON_VERSION))"
 	@echo "  JAVA_HOME        - Java home directory (default: $(JAVA_HOME))"
 
+
 .PHONY: all directories clean clean-data distclean install install-plugins \
-        uninstall run test-lua test-python test-plugins config tree help
+        uninstall run test-lua test-python test-plugins config tree install-deps help

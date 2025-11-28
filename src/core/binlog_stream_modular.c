@@ -363,8 +363,6 @@ static int load_config(const char *filename, config_t *cfg) {
     //fread(content, 1, size, fp);
     size_t nread = fread(content, 1, size, fp);
     if (nread != size) {
-        // Handle error or EOF – depending on your needs
-        // You can log it, or fail the config load.
         log_error("config: expected %zu bytes, got %zu", size, nread);
         free(content);
         fclose(fp);
@@ -479,12 +477,6 @@ static int load_config(const char *filename, config_t *cfg) {
                                 table_config_t *tbl_cfg = &db_cfg->tables[db_cfg->table_count++];
                                 strncpy(tbl_cfg->name, tbl_name, sizeof(tbl_cfg->name) - 1);
 
-//                                json_object *primary_key = json_object_object_get(tbl_obj, "primary_key");
-//                                if(primary_key) {
-//                                    strncpy(tbl_cfg->primary_key,
-//                                            json_object_get_string(primary_key),
-//                                            sizeof(tbl_cfg->primary_key) - 1);
-//                                }
                                 json_object *primary_key = json_object_object_get(tbl_obj, "primary_key");
                                 if (primary_key) {
                                     if (json_object_is_type(primary_key, json_type_array)) {
@@ -767,14 +759,6 @@ static void announce_checksum(MYSQL *mysql)
     }
 }
 
-
-
-//static void announce_checksum(MYSQL *mysql){
-//    mysql_query(mysql, "SET @source_binlog_checksum = @@GLOBAL.binlog_checksum");
-//    mysql_query(mysql, "SET @master_binlog_checksum = @@GLOBAL.binlog_checksum");
-//    mysql_query(mysql, "SET @mariadb_slave_capability = 4");
-//}
-
 static int get_master_position(MYSQL *mysql, char *file_out, size_t file_size,
                                uint64_t *pos_out)
 {
@@ -972,9 +956,6 @@ static void fetch_column_names(const char *db, const char *tbl) {
     mysql_free_result(res);
 }
 
-// Due to length constraints, I'll continue in the next part...
-// [Continuing binlog_stream_modular.c - Part 2]
-
 // ============================================================================
 // TABLE_MAP PARSER
 // ============================================================================
@@ -1003,8 +984,6 @@ static void parse_table_map(const unsigned char *p, uint32_t len){
     uint32_t ncols = (uint32_t)ncols64;
     
     g_map.table_id = tid;
-    //strncpy(g_map.db, new_db, sizeof(g_map.db) - 1);
-    //strncpy(g_map.tbl, new_tbl, sizeof(g_map.tbl) - 1);
     snprintf(g_map.db,  sizeof(g_map.db),  "%s", new_db);
     snprintf(g_map.tbl, sizeof(g_map.tbl), "%s", new_tbl);
 
@@ -1039,9 +1018,6 @@ static void parse_table_map(const unsigned char *p, uint32_t len){
     g_map.metadata = NULL;
     g_map.real_types = NULL;
 
-//    g_map.table_id = tid;
-//    strncpy(g_map.db, new_db, sizeof(g_map.db) - 1);
-//    strncpy(g_map.tbl, new_tbl, sizeof(g_map.tbl) - 1);
     g_map.ncols = ncols;
 
     if(table_changed || ncols_changed || g_enum_cache == NULL) {
@@ -1461,27 +1437,6 @@ static int parse_row_to_json_filtered(const unsigned char **p_ptr, size_t *len_p
                                       uint32_t ncols, const unsigned char *present,
                                       char *json_buf, size_t buf_size, size_t *json_offset)
 {
-//    const unsigned char *p = *p_ptr;
-//    size_t len = *len_ptr;
-//    const unsigned char *start_p = p;
-//
-//    uint32_t bmp_len = (ncols + 7) >> 3;
-//    if(len < bmp_len) return -1;
-//
-//    const unsigned char *nullmap = p;
-//    p += bmp_len;
-//
-//    *json_offset += snprintf(json_buf + *json_offset, buf_size - *json_offset, "{");
-//
-//    int first = 1;
-//    int seen = 0;
-//
-//    table_config_t *tbl_cfg = find_table_config(g_map.db, g_map.tbl);
-//
-//    for(uint32_t i = 0; i < ncols; ++i){
-//        if(!bit_get(present, i)) continue;
-//
-//        int is_null = bit_get(nullmap, seen++);
     const unsigned char *p   = *p_ptr;
     size_t len               = *len_ptr;
     const unsigned char *start_p = p;
@@ -1780,10 +1735,6 @@ static void parse_write_rows(const unsigned char *row_data, size_t row_len,
 
     char json_event[32768];
     size_t json_offset = 0;
-
-//    json_offset += snprintf(json_event, sizeof(json_event),
-//        "{\"type\":\"INSERT\",\"txn\":\"%s\",\"db\":\"%s\",\"table\":\"%s\",\"rows\":[",
-//        current_txn_id, g_map.db, g_map.tbl);
     
     json_offset += snprintf(json_event, sizeof(json_event),
     "{\"type\":\"INSERT\",\"txn\":\"%s\",\"db\":\"%s\",\"table\":\"%s\"",
@@ -1836,9 +1787,6 @@ static void parse_update_rows(const unsigned char *row_data, size_t row_len,
     char json_event[32768];
     size_t json_offset = 0;
 
-//    json_offset += snprintf(json_event, sizeof(json_event),
-//        "{\"type\":\"UPDATE\",\"txn\":\"%s\",\"db\":\"%s\",\"table\":\"%s\",\"rows\":[",
-//        current_txn_id, g_map.db, g_map.tbl);
     json_offset += snprintf(json_event, sizeof(json_event),
     "{\"type\":\"UPDATE\",\"txn\":\"%s\",\"db\":\"%s\",\"table\":\"%s\"",
     current_txn_id, g_map.db, g_map.tbl);
@@ -1900,10 +1848,6 @@ static void parse_delete_rows(const unsigned char *row_data, size_t row_len,
 
     char json_event[32768];
     size_t json_offset = 0;
-
-//    json_offset += snprintf(json_event, sizeof(json_event),
-//        "{\"type\":\"DELETE\",\"txn\":\"%s\",\"db\":\"%s\",\"table\":\"%s\",\"rows\":[",
-//        current_txn_id, g_map.db, g_map.tbl);
     
     json_offset += snprintf(json_event, sizeof(json_event),
     "{\"type\":\"DELETE\",\"txn\":\"%s\",\"db\":\"%s\",\"table\":\"%s\"",
@@ -2214,15 +2158,6 @@ int main(int argc, char **argv){
         return 1;
     }
     
-//    if(g_config.log_file[0]) {
-//        g_config.log_fp = fopen(g_config.log_file, "a");
-//        if(!g_config.log_fp) {
-//            fprintf(stderr, "Cannot open log file: %s\n", g_config.log_file);
-//            g_config.log_fp = NULL;
-//        }
-//    }
-
-    //log_add_fp(g_config.log_fp, parse_log_level(g_config.log_level));
     log_set_level(parse_log_level(g_config.stdout_level));
     if (log_add_rotating_file(&main_log,
                               g_config.log_file,
@@ -2359,13 +2294,6 @@ int main(int argc, char **argv){
 
     free_enum_cache();
 
-//    for(int i = 0; i < g_config.database_count; i++) {
-//        for(int j = 0; j < g_config.databases[i].table_count; j++) {
-//            free(g_config.databases[i].tables[j].columns);
-//        }
-//        free(g_config.databases[i].tables);
-//    }
-//    free(g_config.databases);
     for (int i = 0; i < g_config.database_count; i++) {
         for (int j = 0; j < g_config.databases[i].table_count; j++) {
             table_config_t *tbl = &g_config.databases[i].tables[j];
@@ -2387,9 +2315,7 @@ int main(int argc, char **argv){
 
 
     log_info("Total events: %llu", (unsigned long long)events_received);
-//    if(g_config.log_fp && g_config.log_fp != stdout) {
-//        fclose(g_config.log_fp);
-//    }
+
     log_close_file(&main_log);
     return ret;
 }
