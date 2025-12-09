@@ -145,7 +145,7 @@
         {
             "plugin": {
                 "name": "udp_publisher",
-                "active": true,
+                "active": false,
                 "library_path": "./build/lib/udp_publisher.so",
                 "max_queu_depth": 1024,
                 "publish_databases": [],
@@ -228,7 +228,7 @@
                 "max_queu_depth": 1024,
                 "publish_databases": [],
                 "config": {
-                    "lua_script": "publish.lua",
+                    "lua_script": "./scripts/plugin-examples/publish.lua",
                     "on_event_method": "on_event",
                     "on_init_method": "on_init",
                     "on_start_method": "on_start",
@@ -241,12 +241,12 @@
         {
             "plugin": {
                 "name": "python_publisher",
-                "active": false,
+                "active": true,
                 "library_path": "./build/lib/python_publisher.so",
                 "max_queu_depth": 1024,
                 "publish_databases": [],
                 "config": {
-                    "python_script": "publish.py",
+                    "python_script": "./scripts/plugin-examples/python_publisher.py",
                     "on_event_method": "on_event",
                     "on_init_method": "on_init",
                     "on_start_method": "on_start",

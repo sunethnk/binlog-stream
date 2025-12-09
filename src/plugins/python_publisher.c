@@ -73,34 +73,75 @@ static int init(const publisher_config_t *config, void **plugin_data) {
     if (!Py_IsInitialized()) {
         Py_Initialize();
     }
-    
-    // Add script directory to Python path
+
+    /* ---- Add script directory to sys.path ---- */
     PyObject *sys_path = PySys_GetObject("path");
-    PyObject *path = PyUnicode_FromString(".");
-    PyList_Append(sys_path, path);
-    Py_DECREF(path);
-    
-    // Extract module name from script path
-    const char *module_name = strrchr(data->script_path, '/');
-    if (module_name) {
-        module_name++;
-    } else {
-        module_name = data->script_path;
+    if (!sys_path) {
+        PLUGIN_LOG_ERROR("Failed to get sys.path");
+        free(data);
+        return -1;
     }
-    
-    // Remove .py extension if present
+
+    /* Make a writable copy of the script path */
+    char *script_copy = strdup(data->script_path);
+    if (!script_copy) {
+        PLUGIN_LOG_ERROR("Failed to dup python_script path");
+        free(data);
+        return -1;
+    }
+
+    char *last_slash = strrchr(script_copy, '/');
+    const char *module_name = NULL;
+
+    if (last_slash) {
+        /* Terminate at the slash to get the directory */
+        *last_slash = '\0';
+        const char *script_dir = script_copy;
+
+        PLUGIN_LOG_INFO("Adding Python script dir to sys.path: %s", script_dir);
+        PyObject *py_dir = PyUnicode_FromString(script_dir);
+        if (py_dir) {
+            PyList_Append(sys_path, py_dir);
+            Py_DECREF(py_dir);
+        }
+
+        /* Module name is the part after the slash in the original path */
+        module_name = last_slash + 1;  // original filename part
+    } else {
+        /* No slash in path, assume current dir and filename only */
+        module_name = script_copy;
+
+        PyObject *py_dir = PyUnicode_FromString(".");
+        if (py_dir) {
+            PyList_Append(sys_path, py_dir);
+            Py_DECREF(py_dir);
+        }
+    }
+
+    /* Now remove .py extension from module name (copy it first) */
     char *module_name_copy = strdup(module_name);
+    if (!module_name_copy) {
+        PLUGIN_LOG_ERROR("Failed to dup module name");
+        free(script_copy);
+        free(data);
+        return -1;
+    }
+
     char *dot = strrchr(module_name_copy, '.');
     if (dot && strcmp(dot, ".py") == 0) {
         *dot = '\0';
     }
-    
-    // Import the module
+
+    PLUGIN_LOG_INFO("Importing Python module: %s", module_name_copy);
+
+    /* Import the module */
     PyObject *module_name_obj = PyUnicode_FromString(module_name_copy);
     data->module = PyImport_Import(module_name_obj);
     Py_DECREF(module_name_obj);
+
     free(module_name_copy);
-    
+    free(script_copy);
+
     if (!data->module) {
         PyErr_Print();
         PLUGIN_LOG_ERROR("Failed to load Python module");
