@@ -1,0 +1,420 @@
+========================================================================================================================
+ BINLOG STREAMER                                     v1.0.0       build: 2026-01-04T19:20:53-423b6de
+ PID: 3826469
+========================================================================================================================
+
+[2026-01-04 19:31:32.101] [32m[INFO ][0m - [90msrc/core/publisher_loader.c:286:[0m Loading publisher plugin: example from ./build/lib/example_publisher.so skipped
+[2026-01-04 19:31:32.101] [33m[WARN ][0m - [90msrc/core/pg_stream_modular.c:611:[0m Failed to load publisher plugin: example
+[2026-01-04 19:31:32.101] [32m[INFO ][0m - [90msrc/core/publisher_loader.c:290:[0m Loading publisher plugin: file_output from ./build/lib/file_publisher.so 49
+[2026-01-04 19:31:32.101] [32m[INFO ][0m - [90msrc/core/publisher_loader.c:422:[0m Loaded plugin: file_publisher v1.0.0
+[2026-01-04 19:31:32.101] [32m[INFO ][0m - [90msrc/core/publisher_loader.c:42:[0m Initializing file publisher
+[2026-01-04 19:31:32.101] [32m[INFO ][0m - [90msrc/core/publisher_loader.c:42:[0m File publisher configured: path=test_output/postgres/pg_cdc_public.users.json, flush=1, rotate_max_events=1000, rotate_max_files=10
+[2026-01-04 19:31:32.101] [94m[TRACE][0m - [90msrc/core/publisher_loader.c:184:[0m Initializing queue for file_output
+[2026-01-04 19:31:32.101] [94m[TRACE][0m - [90msrc/core/publisher_loader.c:192:[0m Queue depth set for file_output is 1024
+[2026-01-04 19:31:32.101] [32m[INFO ][0m - [90msrc/core/publisher_loader.c:447:[0m Publisher file_output loaded successfully (active=1, databases=0)
+[2026-01-04 19:31:32.101] [32m[INFO ][0m - [90msrc/core/pg_stream_modular.c:609:[0m Loaded publisher plugin: file_output
+[2026-01-04 19:31:32.101] [32m[INFO ][0m - [90msrc/core/publisher_loader.c:286:[0m Loading publisher plugin: zmq_stream from ./build/lib/zmq_publisher.so skipped
+[2026-01-04 19:31:32.101] [33m[WARN ][0m - [90msrc/core/pg_stream_modular.c:611:[0m Failed to load publisher plugin: zmq_stream
+[2026-01-04 19:31:32.101] [32m[INFO ][0m - [90msrc/core/publisher_loader.c:286:[0m Loading publisher plugin: udp_publisher from ./build/lib/udp_publisher.so skipped
+[2026-01-04 19:31:32.101] [33m[WARN ][0m - [90msrc/core/pg_stream_modular.c:611:[0m Failed to load publisher plugin: udp_publisher
+[2026-01-04 19:31:32.101] [32m[INFO ][0m - [90msrc/core/publisher_loader.c:286:[0m Loading publisher plugin: kafka_producer from ./build/lib/kafka_publisher.so skipped
+[2026-01-04 19:31:32.101] [33m[WARN ][0m - [90msrc/core/pg_stream_modular.c:611:[0m Failed to load publisher plugin: kafka_producer
+[2026-01-04 19:31:32.101] [32m[INFO ][0m - [90msrc/core/publisher_loader.c:286:[0m Loading publisher plugin: redis_publisher from ./build/lib/redis_publisher.so skipped
+[2026-01-04 19:31:32.101] [33m[WARN ][0m - [90msrc/core/pg_stream_modular.c:611:[0m Failed to load publisher plugin: redis_publisher
+[2026-01-04 19:31:32.101] [32m[INFO ][0m - [90msrc/core/publisher_loader.c:286:[0m Loading publisher plugin: webhook_publisher from ./build/lib/webhook_publisher.so skipped
+[2026-01-04 19:31:32.101] [33m[WARN ][0m - [90msrc/core/pg_stream_modular.c:611:[0m Failed to load publisher plugin: webhook_publisher
+[2026-01-04 19:31:32.101] [32m[INFO ][0m - [90msrc/core/publisher_loader.c:286:[0m Loading publisher plugin: syslog_publisher from ./build/lib/syslog_publisher.so skipped
+[2026-01-04 19:31:32.101] [33m[WARN ][0m - [90msrc/core/pg_stream_modular.c:611:[0m Failed to load publisher plugin: syslog_publisher
+[2026-01-04 19:31:32.101] [32m[INFO ][0m - [90msrc/core/publisher_loader.c:286:[0m Loading publisher plugin: lua_publisher from ./build/lib/lua_publisher.so skipped
+[2026-01-04 19:31:32.101] [33m[WARN ][0m - [90msrc/core/pg_stream_modular.c:611:[0m Failed to load publisher plugin: lua_publisher
+[2026-01-04 19:31:32.101] [32m[INFO ][0m - [90msrc/core/publisher_loader.c:286:[0m Loading publisher plugin: python_publisher from ./build/lib/python_publisher.so skipped
+[2026-01-04 19:31:32.101] [33m[WARN ][0m - [90msrc/core/pg_stream_modular.c:611:[0m Failed to load publisher plugin: python_publisher
+[2026-01-04 19:31:32.101] [32m[INFO ][0m - [90msrc/core/publisher_loader.c:286:[0m Loading publisher plugin: java_publisher from ./build/lib/java_publisher.so skipped
+[2026-01-04 19:31:32.101] [33m[WARN ][0m - [90msrc/core/pg_stream_modular.c:611:[0m Failed to load publisher plugin: java_publisher
+[2026-01-04 19:31:32.101] [32m[INFO ][0m - [90msrc/core/pg_stream_modular.c:633:[0m Configuration loaded successfully
+[2026-01-04 19:31:32.101] [32m[INFO ][0m - [90msrc/core/pg_stream_modular.c:634:[0m PostgreSQL: localhost:5432/testdb
+[2026-01-04 19:31:32.101] [32m[INFO ][0m - [90msrc/core/pg_stream_modular.c:635:[0m Replication slot: cdc_slot
+[2026-01-04 19:31:32.101] [32m[INFO ][0m - [90msrc/core/pg_stream_modular.c:636:[0m Publication: cdc_publication
+[2026-01-04 19:31:32.101] [32m[INFO ][0m - [90msrc/core/pg_stream_modular.c:286:[0m ========== Capture Configuration ==========
+[2026-01-04 19:31:32.102] [32m[INFO ][0m - [90msrc/core/pg_stream_modular.c:289:[0m Schema: public (DML:YES, DDL:YES, tables:3)
+[2026-01-04 19:31:32.102] [32m[INFO ][0m - [90msrc/core/pg_stream_modular.c:298:[0m   -> public.users: ALL COLUMNS (wildcard)
+[2026-01-04 19:31:32.102] [32m[INFO ][0m - [90msrc/core/pg_stream_modular.c:298:[0m   -> public.orders: ALL COLUMNS (wildcard)
+[2026-01-04 19:31:32.102] [32m[INFO ][0m - [90msrc/core/pg_stream_modular.c:298:[0m   -> public.events: ALL COLUMNS (wildcard)
+[2026-01-04 19:31:32.102] [32m[INFO ][0m - [90msrc/core/pg_stream_modular.c:311:[0m ==========================================
+[2026-01-04 19:31:32.102] [32m[INFO ][0m - [90msrc/core/publisher_loader.c:458:[0m Starting publisher: file_output
+[2026-01-04 19:31:32.102] [32m[INFO ][0m - [90msrc/core/publisher_loader.c:42:[0m Starting file publisher: test_output/postgres/pg_cdc_public.users.json
+[2026-01-04 19:31:32.102] [32m[INFO ][0m - [90msrc/core/publisher_loader.c:42:[0m File publisher started: test_output/postgres/pg_cdc_public.users.json
+[2026-01-04 19:31:32.102] [32m[INFO ][0m - [90msrc/core/publisher_loader.c:477:[0m Publisher file_output started
+[2026-01-04 19:31:32.102] [32m[INFO ][0m - [90msrc/core/pg_stream_modular.c:1524:[0m Started publisher: file_output
+[2026-01-04 19:31:32.102] [32m[INFO ][0m - [90msrc/core/publisher_loader.c:226:[0m Publisher worker started: file_output
+[2026-01-04 19:31:32.116] [32m[INFO ][0m - [90msrc/core/pg_stream_modular.c:1548:[0m Connected to PostgreSQL 15.15 (Debian 15.15-1.pgdg13+1)
+[2026-01-04 19:31:32.117] [32m[INFO ][0m - [90msrc/core/pg_stream_modular.c:1562:[0m Starting from current LSN: 0/19488F0
+[2026-01-04 19:31:32.119] [32m[INFO ][0m - [90msrc/core/pg_stream_modular.c:1576:[0m Slot confirmed_flush_lsn: 0/1948840
+[2026-01-04 19:31:32.119] [33m[WARN ][0m - [90msrc/core/pg_stream_modular.c:1581:[0m Local checkpoint/start_lsn is ahead of slot confirmed_flush_lsn; clamping from 0/19488F0 down to 0/1948840 to avoid skipping changes
+[2026-01-04 19:31:32.120] [32m[INFO ][0m - [90msrc/core/pg_stream_modular.c:1364:[0m Streaming from LSN 0/1948840
+[2026-01-04 19:31:32.120] [32m[INFO ][0m - [90msrc/core/pg_stream_modular.c:1366:[0m Waiting for events (Ctrl+C to stop)...
+[2026-01-04 19:31:32.120] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=k len=18
+[2026-01-04 19:31:32.126] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=k len=18
+[2026-01-04 19:31:39.354] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=k len=18
+[2026-01-04 19:31:39.354] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=w len=46
+[2026-01-04 19:31:39.354] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1427:[0m XLogData end=0/1948958 pgoutput=B
+[2026-01-04 19:31:39.354] [36m[DEBUG][0m - [90msrc/core/pg_stream_modular.c:1252:[0m [txn:c5e7a4f5-e2ea-41a1-ad52-df732d100e56] BEGIN transaction (pg_xid=742)
+[2026-01-04 19:31:39.354] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=w len=182
+[2026-01-04 19:31:39.354] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1427:[0m XLogData end=0/0 pgoutput=R
+[2026-01-04 19:31:39.354] [36m[DEBUG][0m - [90msrc/core/pg_stream_modular.c:875:[0m RELATION: relid=16388 schema=public table=users natts=8
+[2026-01-04 19:31:39.354] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:910:[0m   Column: id typid=23
+[2026-01-04 19:31:39.354] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:910:[0m   Column: username typid=1043
+[2026-01-04 19:31:39.354] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:910:[0m   Column: email typid=1043
+[2026-01-04 19:31:39.354] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:910:[0m   Column: status typid=1043
+[2026-01-04 19:31:39.354] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:910:[0m   Column: balance typid=1700
+[2026-01-04 19:31:39.354] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:910:[0m   Column: metadata typid=3802
+[2026-01-04 19:31:39.354] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:910:[0m   Column: created_at typid=1114
+[2026-01-04 19:31:39.354] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:910:[0m   Column: updated_at typid=1114
+[2026-01-04 19:31:39.354] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=w len=183
+[2026-01-04 19:31:39.354] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1427:[0m XLogData end=0/1948958 pgoutput=I
+[2026-01-04 19:31:39.354] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:774:[0m Dispatching event publisher=file_output txn=c5e7a4f5-e2ea-41a1-ad52-df732d100e56 schema=public table=users LSN=0/1948958: {"type":"INSERT","txn":"c5e7a4f5-e2ea-41a1-ad52-df732d100e56","schema":"public","table":"users","primary_key":["id"],"rows":[{"id":4,"username":"david","email":"david@example.com","status":"active","balance":750.00,"metadata":{"vip": true, "level": 3},"created_at":"2026-01-04 14:01:39.35336","updated_at":"2026-01-04 14:01:39.35336"}]}
+[2026-01-04 19:31:39.354] [36m[DEBUG][0m - [90msrc/core/pg_stream_modular.c:785:[0m Dispatched to 1 publisher(s) for schema=public table=users
+[2026-01-04 19:31:39.354] [36m[DEBUG][0m - [90msrc/core/pg_stream_modular.c:1021:[0m INSERT public.users: 1 row captured
+[2026-01-04 19:31:39.354] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=w len=181
+[2026-01-04 19:31:39.354] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1427:[0m XLogData end=0/1948E50 pgoutput=I
+[2026-01-04 19:31:39.354] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:774:[0m Dispatching event publisher=file_output txn=c5e7a4f5-e2ea-41a1-ad52-df732d100e56 schema=public table=users LSN=0/1948E50: {"type":"INSERT","txn":"c5e7a4f5-e2ea-41a1-ad52-df732d100e56","schema":"public","table":"users","primary_key":["id"],"rows":[{"id":5,"username":"eve","email":"eve@example.com","status":"pending","balance":250.00,"metadata":{"vip": false, "level": 1},"created_at":"2026-01-04 14:01:39.35336","updated_at":"2026-01-04 14:01:39.35336"}]}
+[2026-01-04 19:31:39.354] [36m[DEBUG][0m - [90msrc/core/pg_stream_modular.c:785:[0m Dispatched to 1 publisher(s) for schema=public table=users
+[2026-01-04 19:31:39.354] [36m[DEBUG][0m - [90msrc/core/pg_stream_modular.c:1021:[0m INSERT public.users: 1 row captured
+[2026-01-04 19:31:39.354] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=w len=51
+[2026-01-04 19:31:39.354] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1427:[0m XLogData end=0/1948FE0 pgoutput=C
+[2026-01-04 19:31:39.354] [36m[DEBUG][0m - [90msrc/core/pg_stream_modular.c:1267:[0m [txn:c5e7a4f5-e2ea-41a1-ad52-df732d100e56] COMMIT at LSN 0/1948FB0
+[2026-01-04 19:31:39.354] [94m[TRACE][0m - [2026-01-04 19:31:39.354] [94m[TRACE][0m - [90msrc/core/publisher_loader.c:60:[0m Published event to file: txn=c5e7a4f5-e2ea-41a1-ad52-df732d100e56, db=public, table=users
+[2026-01-04 19:31:39.354] [94m[TRACE][0m - [90msrc/core/publisher_loader.c:60:[0m Published event to file: txn=c5e7a4f5-e2ea-41a1-ad52-df732d100e56, db=public, table=users
+[90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=k len=18
+[2026-01-04 19:31:41.510] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=k len=18
+[2026-01-04 19:31:41.510] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=w len=46
+[2026-01-04 19:31:41.510] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1427:[0m XLogData end=0/1948FE0 pgoutput=B
+[2026-01-04 19:31:41.510] [36m[DEBUG][0m - [90msrc/core/pg_stream_modular.c:1252:[0m [txn:980e1245-e1b7-4060-9cad-6da97cd89860] BEGIN transaction (pg_xid=743)
+[2026-01-04 19:31:41.510] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=w len=342
+[2026-01-04 19:31:41.510] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1427:[0m XLogData end=0/1948FE0 pgoutput=U
+[2026-01-04 19:31:41.510] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:774:[0m Dispatching event publisher=file_output txn=980e1245-e1b7-4060-9cad-6da97cd89860 schema=public table=users LSN=0/1948FE0: {"type":"UPDATE","txn":"980e1245-e1b7-4060-9cad-6da97cd89860","schema":"public","table":"users","primary_key":["id"],"rows":[{"before":{"id":1,"username":"alice","email":"alice@example.com","status":"active","balance":1000.00,"metadata":{"vip": true, "level": 5},"created_at":"2026-01-04 14:01:12.138633","updated_at":"2026-01-04 14:01:12.138633"},"after":{"id":1,"username":"alice","email":"alice@example.com","status":"active","balance":1100.00,"metadata":{"vip": true, "level": 5},"created_at":"2026-01-04 14:01:12.138633","updated_at":"2026-01-04 14:01:12.138633"}}]}
+[2026-01-04 19:31:41.510] [36m[DEBUG][0m - [90msrc/core/pg_stream_modular.c:785:[0m Dispatched to 1 publisher(s) for schema=public table=users
+[2026-01-04 19:31:41.510] [36m[DEBUG][0m - [90msrc/core/pg_stream_modular.c:1156:[0m UPDATE public.users: 1 row captured
+[2026-01-04 19:31:41.510] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=w len=51
+[2026-01-04 19:31:41.510] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1427:[0m XLogData end=0/1949118 pgoutput=C
+[2026-01-04 19:31:41.510] [36m[DEBUG][0m - [90msrc/core/pg_stream_modular.c:1267:[0m [txn:980e1245-e1b7-4060-9cad-6da97cd89860] COMMIT at LSN 0/19490E8
+[2026-01-04 19:31:41.510] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=k len=18
+[2026-01-04 19:31:41.510] [94m[TRACE][0m - [90msrc/core/publisher_loader.c:60:[0m Published event to file: txn=980e1245-e1b7-4060-9cad-6da97cd89860, db=public, table=users
+[2026-01-04 19:31:41.654] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=k len=18
+[2026-01-04 19:31:41.654] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=w len=46
+[2026-01-04 19:31:41.654] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1427:[0m XLogData end=0/1949118 pgoutput=B
+[2026-01-04 19:31:41.654] [36m[DEBUG][0m - [90msrc/core/pg_stream_modular.c:1252:[0m [txn:3a3dabe6-1475-419e-bf95-554a358022ea] BEGIN transaction (pg_xid=744)
+[2026-01-04 19:31:41.654] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=w len=348
+[2026-01-04 19:31:41.654] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1427:[0m XLogData end=0/1949118 pgoutput=U
+[2026-01-04 19:31:41.654] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:774:[0m Dispatching event publisher=file_output txn=3a3dabe6-1475-419e-bf95-554a358022ea schema=public table=users LSN=0/1949118: {"type":"UPDATE","txn":"3a3dabe6-1475-419e-bf95-554a358022ea","schema":"public","table":"users","primary_key":["id"],"rows":[{"before":{"id":3,"username":"charlie","email":"charlie@example.com","status":"inactive","balance":0.00,"metadata":{"vip": false, "level": 1},"created_at":"2026-01-04 14:01:12.138633","updated_at":"2026-01-04 14:01:12.138633"},"after":{"id":3,"username":"charlie","email":"charlie@example.com","status":"active","balance":0.00,"metadata":{"vip": false, "level": 1},"created_at":"2026-01-04 14:01:12.138633","updated_at":"2026-01-04 14:01:12.138633"}}]}
+[2026-01-04 19:31:41.654] [36m[DEBUG][0m - [90msrc/core/pg_stream_modular.c:785:[0m Dispatched to 1 publisher(s) for schema=public table=users
+[2026-01-04 19:31:41.654] [36m[DEBUG][0m - [90msrc/core/pg_stream_modular.c:1156:[0m UPDATE public.users: 1 row captured
+[2026-01-04 19:31:41.654] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=w len=51
+[2026-01-04 19:31:41.654] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1427:[0m XLogData end=0/1949258 pgoutput=C
+[2026-01-04 19:31:41.654] [36m[DEBUG][0m - [90msrc/core/pg_stream_modular.c:1267:[0m [txn:3a3dabe6-1475-419e-bf95-554a358022ea] COMMIT at LSN 0/1949228
+[2026-01-04 19:31:41.655] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=k len=18
+[2026-01-04 19:31:41.655] [94m[TRACE][0m - [90msrc/core/publisher_loader.c:60:[0m Published event to file: txn=3a3dabe6-1475-419e-bf95-554a358022ea, db=public, table=users
+[2026-01-04 19:31:42.119] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=k len=18
+[2026-01-04 19:31:42.438] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=k len=18
+[2026-01-04 19:31:43.815] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=k len=18
+[2026-01-04 19:31:43.815] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=w len=46
+[2026-01-04 19:31:43.815] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1427:[0m XLogData end=0/19492F8 pgoutput=B
+[2026-01-04 19:31:43.815] [36m[DEBUG][0m - [90msrc/core/pg_stream_modular.c:1252:[0m [txn:5c1f8911-546b-456c-ba45-310d72e20553] BEGIN transaction (pg_xid=745)
+[2026-01-04 19:31:43.815] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=w len=186
+[2026-01-04 19:31:43.815] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1427:[0m XLogData end=0/0 pgoutput=R
+[2026-01-04 19:31:43.815] [36m[DEBUG][0m - [90msrc/core/pg_stream_modular.c:875:[0m RELATION: relid=16403 schema=public table=orders natts=7
+[2026-01-04 19:31:43.815] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:910:[0m   Column: order_id typid=23
+[2026-01-04 19:31:43.815] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:910:[0m   Column: user_id typid=23
+[2026-01-04 19:31:43.815] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:910:[0m   Column: product_name typid=1043
+[2026-01-04 19:31:43.815] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:910:[0m   Column: quantity typid=23
+[2026-01-04 19:31:43.815] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:910:[0m   Column: total_amount typid=1700
+[2026-01-04 19:31:43.815] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:910:[0m   Column: order_status typid=1043
+[2026-01-04 19:31:43.815] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:910:[0m   Column: created_at typid=1114
+[2026-01-04 19:31:43.815] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=w len=117
+[2026-01-04 19:31:43.815] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1427:[0m XLogData end=0/19492F8 pgoutput=I
+[2026-01-04 19:31:43.815] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:774:[0m Dispatching event publisher=file_output txn=5c1f8911-546b-456c-ba45-310d72e20553 schema=public table=orders LSN=0/19492F8: {"type":"INSERT","txn":"5c1f8911-546b-456c-ba45-310d72e20553","schema":"public","table":"orders","primary_key":["order_id"],"rows":[{"order_id":4,"user_id":4,"product_name":"Monitor","quantity":1,"total_amount":299.99,"order_status":"pending","created_at":"2026-01-04 14:01:43.814042"}]}
+[2026-01-04 19:31:43.815] [36m[DEBUG][0m - [90msrc/core/pg_stream_modular.c:785:[0m Dispatched to 1 publisher(s) for schema=public table=orders
+[2026-01-04 19:31:43.815] [36m[DEBUG][0m - [90msrc/core/pg_stream_modular.c:1021:[0m INSERT public.orders: 1 row captured
+[2026-01-04 19:31:43.815] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=w len=115
+[2026-01-04 19:31:43.815] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1427:[0m XLogData end=0/1949560 pgoutput=I
+[2026-01-04 19:31:43.815] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:774:[0m Dispatching event publisher=file_output txn=5c1f8911-546b-456c-ba45-310d72e20553 schema=public table=orders LSN=0/1949560: {"type":"INSERT","txn":"5c1f8911-546b-456c-ba45-310d72e20553","schema":"public","table":"orders","primary_key":["order_id"],"rows":[{"order_id":5,"user_id":5,"product_name":"Webcam","quantity":2,"total_amount":89.98,"order_status":"pending","created_at":"2026-01-04 14:01:43.814042"}]}
+[2026-01-04 19:31:43.815] [36m[DEBUG][0m - [90msrc/core/pg_stream_modular.c:785:[0m Dispatched to 1 publisher(s) for schema=public table=orders
+[2026-01-04 19:31:43.815] [36m[DEBUG][0m - [90msrc/core/pg_stream_modular.c:1021:[0m INSERT public.orders: 1 row captured
+[2026-01-04 19:31:43.815] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=w len=120
+[2026-01-04 19:31:43.815] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1427:[0m XLogData end=0/1949608 pgoutput=I
+[2026-01-04 19:31:43.815] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:774:[0m Dispatching event publisher=file_output txn=5c1f8911-546b-456c-ba45-310d72e20553 schema=public table=orders LSN=0/1949608: {"type":"INSERT","txn":"5c1f8911-546b-456c-ba45-310d72e20553","schema":"public","table":"orders","primary_key":["order_id"],"rows":[{"order_id":6,"user_id":1,"product_name":"USB Cable","quantity":3,"total_amount":14.97,"order_status":"completed","created_at":"2026-01-04 14:01:43.814042"}]}
+[2026-01-04 19:31:43.815] [36m[DEBUG][0m - [90msrc/core/pg_stream_modular.c:785:[0m Dispatched to 1 publisher(s) for schema=public table=orders
+[2026-01-04 19:31:43.815] [36m[DEBUG][0m - [90msrc/core/pg_stream_modular.c:1021:[0m INSERT public.orders: 1 row captured
+[2026-01-04 19:31:43.815] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=w len=51
+[2026-01-04 19:31:43.815] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1427:[0m XLogData end=0/1949790 pgoutput=C
+[2026-01-04 19:31:43.815] [36m[DEBUG][0m - [90msrc/core/pg_stream_modular.c:1267:[0m [txn:5c1f8911-546b-456c-ba45-310d72e20553] COMMIT at LSN 0/1949760
+[2026-01-04 19:31:43.815] [94m[TRACE][0m - [90msrc/core/publisher_loader.c:60:[0m Published event to file: txn=5c1f8911-546b-456c-ba45-310d72e20553, db=public, table=orders
+[2026-01-04 19:31:43.815] [94m[TRACE][0m - [90msrc/core/publisher_loader.c:60:[0m Published event to file: txn=5c1f8911-546b-456c-ba45-310d72e20553, db=public, table=orders
+[2026-01-04 19:31:43.815] [94m[TRACE][0m - [90msrc/core/publisher_loader.c:60:[0m Published event to file: txn=5c1f8911-546b-456c-ba45-310d72e20553, db=public, table=orders
+[2026-01-04 19:31:43.815] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=k len=18
+[2026-01-04 19:31:45.984] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=k len=18
+[2026-01-04 19:31:45.984] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=w len=46
+[2026-01-04 19:31:45.984] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1427:[0m XLogData end=0/19497F8 pgoutput=B
+[2026-01-04 19:31:45.984] [36m[DEBUG][0m - [90msrc/core/pg_stream_modular.c:1252:[0m [txn:def0358a-1cc2-4008-8c6c-ec6677dba996] BEGIN transaction (pg_xid=746)
+[2026-01-04 19:31:45.984] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=w len=125
+[2026-01-04 19:31:45.984] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1427:[0m XLogData end=0/0 pgoutput=R
+[2026-01-04 19:31:45.984] [36m[DEBUG][0m - [90msrc/core/pg_stream_modular.c:875:[0m RELATION: relid=16418 schema=public table=events natts=4
+[2026-01-04 19:31:45.984] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:910:[0m   Column: event_id typid=20
+[2026-01-04 19:31:45.984] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:910:[0m   Column: event_type typid=1043
+[2026-01-04 19:31:45.984] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:910:[0m   Column: event_data typid=3802
+[2026-01-04 19:31:45.984] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:910:[0m   Column: created_at typid=1114
+[2026-01-04 19:31:45.984] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=w len=154
+[2026-01-04 19:31:45.984] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1427:[0m XLogData end=0/19497F8 pgoutput=I
+[2026-01-04 19:31:45.984] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:774:[0m Dispatching event publisher=file_output txn=def0358a-1cc2-4008-8c6c-ec6677dba996 schema=public table=events LSN=0/19497F8: {"type":"INSERT","txn":"def0358a-1cc2-4008-8c6c-ec6677dba996","schema":"public","table":"events","primary_key":["event_id"],"rows":[{"event_id":3,"event_type":"payment_processed","event_data":{"amount": 299.99, "method": "credit_card", "user_id": 1},"created_at":"2026-01-04 14:01:45.983074"}]}
+[2026-01-04 19:31:45.984] [36m[DEBUG][0m - [90msrc/core/pg_stream_modular.c:785:[0m Dispatched to 1 publisher(s) for schema=public table=events
+[2026-01-04 19:31:45.984] [36m[DEBUG][0m - [90msrc/core/pg_stream_modular.c:1021:[0m INSERT public.events: 1 row captured
+[2026-01-04 19:31:45.984] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=w len=135
+[2026-01-04 19:31:45.984] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1427:[0m XLogData end=0/1949AD8 pgoutput=I
+[2026-01-04 19:31:45.984] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:774:[0m Dispatching event publisher=file_output txn=def0358a-1cc2-4008-8c6c-ec6677dba996 schema=public table=events LSN=0/1949AD8: {"type":"INSERT","txn":"def0358a-1cc2-4008-8c6c-ec6677dba996","schema":"public","table":"events","primary_key":["event_id"],"rows":[{"event_id":4,"event_type":"order_shipped","event_data":{"order_id": 4, "tracking": "TRACK123456"},"created_at":"2026-01-04 14:01:45.983074"}]}
+[2026-01-04 19:31:45.984] [36m[DEBUG][0m - [90msrc/core/pg_stream_modular.c:785:[0m Dispatched to 1 publisher(s) for schema=public table=events
+[2026-01-04 19:31:45.984] [36m[DEBUG][0m - [90msrc/core/pg_stream_modular.c:1021:[0m INSERT public.events: 1 row captured
+[2026-01-04 19:31:45.984] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=w len=51
+[2026-01-04 19:31:45.984] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1427:[0m XLogData end=0/1949BD8 pgoutput=C
+[2026-01-04 19:31:45.984] [36m[DEBUG][0m - [90msrc/core/pg_stream_modular.c:1267:[0m [txn:def0358a-1cc2-4008-8c6c-ec6677dba996] COMMIT at LSN 0/1949BA8
+[2026-01-04 19:31:45.984] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=k len=18
+[2026-01-04 19:31:45.984] [94m[TRACE][0m - [90msrc/core/publisher_loader.c:60:[0m Published event to file: txn=def0358a-1cc2-4008-8c6c-ec6677dba996, db=public, table=events
+[2026-01-04 19:31:45.984] [94m[TRACE][0m - [90msrc/core/publisher_loader.c:60:[0m Published event to file: txn=def0358a-1cc2-4008-8c6c-ec6677dba996, db=public, table=events
+[2026-01-04 19:31:48.147] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=k len=18
+[2026-01-04 19:31:48.147] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=w len=46
+[2026-01-04 19:31:48.147] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1427:[0m XLogData end=0/1949BD8 pgoutput=B
+[2026-01-04 19:31:48.147] [36m[DEBUG][0m - [90msrc/core/pg_stream_modular.c:1252:[0m [txn:0d277cfa-bb69-4d95-b78c-b9480973ea4c] BEGIN transaction (pg_xid=747)
+[2026-01-04 19:31:48.147] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=w len=207
+[2026-01-04 19:31:48.147] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1427:[0m XLogData end=0/1949BD8 pgoutput=U
+[2026-01-04 19:31:48.147] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:774:[0m Dispatching event publisher=file_output txn=0d277cfa-bb69-4d95-b78c-b9480973ea4c schema=public table=orders LSN=0/1949BD8: {"type":"UPDATE","txn":"0d277cfa-bb69-4d95-b78c-b9480973ea4c","schema":"public","table":"orders","primary_key":["order_id"],"rows":[{"before":{"order_id":4,"user_id":4,"product_name":"Monitor","quantity":1,"total_amount":299.99,"order_status":"pending","created_at":"2026-01-04 14:01:43.814042"},"after":{"order_id":4,"user_id":4,"product_name":"Monitor","quantity":1,"total_amount":299.99,"order_status":"processing","created_at":"2026-01-04 14:01:43.814042"}}]}
+[2026-01-04 19:31:48.147] [36m[DEBUG][0m - [90msrc/core/pg_stream_modular.c:785:[0m Dispatched to 1 publisher(s) for schema=public table=orders
+[2026-01-04 19:31:48.147] [36m[DEBUG][0m - [90msrc/core/pg_stream_modular.c:1156:[0m UPDATE public.orders: 1 row captured
+[2026-01-04 19:31:48.147] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=w len=203
+[2026-01-04 19:31:48.147] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1427:[0m XLogData end=0/1949C80 pgoutput=U
+[2026-01-04 19:31:48.147] [94m[TRACE][0m - [90msrc/core/publisher_loader.c:60:[0m Published event to file: txn=0d277cfa-bb69-4d95-b78c-b9480973ea4c, db=public, table=orders
+[2026-01-04 19:31:48.147] [94m[TRACE][0m - [90msrc/core/publisher_loader.c:60:[0m Published event to file: txn=0d277cfa-bb69-4d95-b78c-b9480973ea4c, db=public, table=orders
+[2026-01-04 19:31:48.147] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:774:[0m Dispatching event publisher=file_output txn=0d277cfa-bb69-4d95-b78c-b9480973ea4c schema=public table=orders LSN=0/1949C80: {"type":"UPDATE","txn":"0d277cfa-bb69-4d95-b78c-b9480973ea4c","schema":"public","table":"orders","primary_key":["order_id"],"rows":[{"before":{"order_id":5,"user_id":5,"product_name":"Webcam","quantity":2,"total_amount":89.98,"order_status":"pending","created_at":"2026-01-04 14:01:43.814042"},"after":{"order_id":5,"user_id":5,"product_name":"Webcam","quantity":2,"total_amount":89.98,"order_status":"processing","created_at":"2026-01-04 14:01:43.814042"}}]}
+[2026-01-04 19:31:48.147] [36m[DEBUG][0m - [90msrc/core/pg_stream_modular.c:785:[0m Dispatched to 1 publisher(s) for schema=public table=orders
+[2026-01-04 19:31:48.147] [36m[DEBUG][0m - [90msrc/core/pg_stream_modular.c:1156:[0m UPDATE public.orders: 1 row captured
+[2026-01-04 19:31:48.147] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=w len=51
+[2026-01-04 19:31:48.147] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1427:[0m XLogData end=0/1949D58 pgoutput=C
+[2026-01-04 19:31:48.147] [36m[DEBUG][0m - [90msrc/core/pg_stream_modular.c:1267:[0m [txn:0d277cfa-bb69-4d95-b78c-b9480973ea4c] COMMIT at LSN 0/1949D28
+[2026-01-04 19:31:48.147] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=k len=18
+[2026-01-04 19:31:48.282] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=k len=18
+[2026-01-04 19:31:48.282] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=w len=46
+[2026-01-04 19:31:48.282] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1427:[0m XLogData end=0/1949D58 pgoutput=B
+[2026-01-04 19:31:48.282] [36m[DEBUG][0m - [90msrc/core/pg_stream_modular.c:1252:[0m [txn:76c2c90f-6c5a-4b52-ad8b-7ce605e956b5] BEGIN transaction (pg_xid=748)
+[2026-01-04 19:31:48.282] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=w len=207
+[2026-01-04 19:31:48.282] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1427:[0m XLogData end=0/1949D58 pgoutput=U
+[2026-01-04 19:31:48.282] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:774:[0m Dispatching event publisher=file_output txn=76c2c90f-6c5a-4b52-ad8b-7ce605e956b5 schema=public table=orders LSN=0/1949D58: {"type":"UPDATE","txn":"76c2c90f-6c5a-4b52-ad8b-7ce605e956b5","schema":"public","table":"orders","primary_key":["order_id"],"rows":[{"before":{"order_id":4,"user_id":4,"product_name":"Monitor","quantity":1,"total_amount":299.99,"order_status":"processing","created_at":"2026-01-04 14:01:43.814042"},"after":{"order_id":4,"user_id":4,"product_name":"Monitor","quantity":1,"total_amount":269.99,"order_status":"shipped","created_at":"2026-01-04 14:01:43.814042"}}]}
+[2026-01-04 19:31:48.282] [36m[DEBUG][0m - [90msrc/core/pg_stream_modular.c:785:[0m Dispatched to 1 publisher(s) for schema=public table=orders
+[2026-01-04 19:31:48.282] [36m[DEBUG][0m - [90msrc/core/pg_stream_modular.c:1156:[0m UPDATE public.orders: 1 row captured
+[2026-01-04 19:31:48.282] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=w len=51
+[2026-01-04 19:31:48.282] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1427:[0m XLogData end=0/1949E30 pgoutput=C
+[2026-01-04 19:31:48.282] [36m[DEBUG][0m - [90msrc/core/pg_stream_modular.c:1267:[0m [txn:76c2c90f-6c5a-4b52-ad8b-7ce605e956b5] COMMIT at LSN 0/1949E00
+[2026-01-04 19:31:48.282] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=k len=18
+[2026-01-04 19:31:48.283] [94m[TRACE][0m - [90msrc/core/publisher_loader.c:60:[0m Published event to file: txn=76c2c90f-6c5a-4b52-ad8b-7ce605e956b5, db=public, table=orders
+[2026-01-04 19:31:52.319] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=k len=18
+[2026-01-04 19:31:52.335] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=k len=18
+[2026-01-04 19:31:52.335] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=k len=18
+[2026-01-04 19:31:52.336] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=k len=18
+[2026-01-04 19:31:52.336] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=k len=18
+[2026-01-04 19:31:52.341] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=k len=18
+[2026-01-04 19:31:52.342] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=k len=18
+[2026-01-04 19:31:52.346] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=k len=18
+[2026-01-04 19:31:52.346] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=k len=18
+[2026-01-04 19:31:52.347] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=k len=18
+[2026-01-04 19:31:52.347] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=k len=18
+[2026-01-04 19:31:52.353] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=k len=18
+[2026-01-04 19:31:52.353] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=k len=18
+[2026-01-04 19:31:52.356] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=k len=18
+[2026-01-04 19:31:52.356] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=k len=18
+[2026-01-04 19:31:52.357] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=k len=18
+[2026-01-04 19:31:52.357] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=k len=18
+[2026-01-04 19:31:52.361] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=k len=18
+[2026-01-04 19:31:52.361] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=k len=18
+[2026-01-04 19:31:52.361] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=k len=18
+[2026-01-04 19:31:52.361] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=k len=18
+[2026-01-04 19:31:52.362] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=k len=18
+[2026-01-04 19:31:52.362] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=k len=18
+[2026-01-04 19:31:52.739] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=k len=18
+[2026-01-04 19:31:52.739] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=w len=46
+[2026-01-04 19:31:52.739] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1427:[0m XLogData end=0/198DC40 pgoutput=B
+[2026-01-04 19:31:52.739] [36m[DEBUG][0m - [90msrc/core/pg_stream_modular.c:1252:[0m [txn:e1eb312a-1677-40dd-994a-7734394a1113] BEGIN transaction (pg_xid=760)
+[2026-01-04 19:31:52.739] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=w len=129
+[2026-01-04 19:31:52.739] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1427:[0m XLogData end=0/198DC40 pgoutput=I
+[2026-01-04 19:31:52.739] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:774:[0m Dispatching event publisher=file_output txn=e1eb312a-1677-40dd-994a-7734394a1113 schema=public table=events LSN=0/198DC40: {"type":"INSERT","txn":"e1eb312a-1677-40dd-994a-7734394a1113","schema":"public","table":"events","primary_key":["event_id"],"rows":[{"event_id":5,"event_type":"bulk_event_1","event_data":{"batch": 1, "timestamp": 1767535312},"created_at":"2026-01-04 14:01:52.737407"}]}
+[2026-01-04 19:31:52.739] [36m[DEBUG][0m - [90msrc/core/pg_stream_modular.c:785:[0m Dispatched to 1 publisher(s) for schema=public table=events
+[2026-01-04 19:31:52.739] [36m[DEBUG][0m - [90msrc/core/pg_stream_modular.c:1021:[0m INSERT public.events: 1 row captured
+[2026-01-04 19:31:52.739] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=w len=51
+[2026-01-04 19:31:52.739] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1427:[0m XLogData end=0/198DD40 pgoutput=C
+[2026-01-04 19:31:52.739] [36m[DEBUG][0m - [90msrc/core/pg_stream_modular.c:1267:[0m [txn:e1eb312a-1677-40dd-994a-7734394a1113] COMMIT at LSN 0/198DD10
+[2026-01-04 19:31:52.739] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=k len=18
+[2026-01-04 19:31:52.739] [94m[TRACE][0m - [90msrc/core/publisher_loader.c:60:[0m Published event to file: txn=e1eb312a-1677-40dd-994a-7734394a1113, db=public, table=events
+[2026-01-04 19:31:52.870] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=k len=18
+[2026-01-04 19:31:52.870] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=w len=46
+[2026-01-04 19:31:52.870] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1427:[0m XLogData end=0/198DD40 pgoutput=B
+[2026-01-04 19:31:52.870] [36m[DEBUG][0m - [90msrc/core/pg_stream_modular.c:1252:[0m [txn:ea174613-6f57-4d30-aa22-b6d13f85e30c] BEGIN transaction (pg_xid=761)
+[2026-01-04 19:31:52.870] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=w len=129
+[2026-01-04 19:31:52.870] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1427:[0m XLogData end=0/198DD40 pgoutput=I
+[2026-01-04 19:31:52.870] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:774:[0m Dispatching event publisher=file_output txn=ea174613-6f57-4d30-aa22-b6d13f85e30c schema=public table=events LSN=0/198DD40: {"type":"INSERT","txn":"ea174613-6f57-4d30-aa22-b6d13f85e30c","schema":"public","table":"events","primary_key":["event_id"],"rows":[{"event_id":6,"event_type":"bulk_event_2","event_data":{"batch": 2, "timestamp": 1767535312},"created_at":"2026-01-04 14:01:52.869083"}]}
+[2026-01-04 19:31:52.870] [36m[DEBUG][0m - [90msrc/core/pg_stream_modular.c:785:[0m Dispatched to 1 publisher(s) for schema=public table=events
+[2026-01-04 19:31:52.870] [36m[DEBUG][0m - [90msrc/core/pg_stream_modular.c:1021:[0m INSERT public.events: 1 row captured
+[2026-01-04 19:31:52.870] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=w len=51
+[2026-01-04 19:31:52.870] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1427:[0m XLogData end=0/198DE40 pgoutput=C
+[2026-01-04 19:31:52.870] [36m[DEBUG][0m - [90msrc/core/pg_stream_modular.c:1267:[0m [txn:ea174613-6f57-4d30-aa22-b6d13f85e30c] COMMIT at LSN 0/198DE10[2026-01-04 19:31:52.870] [94m[TRACE][0m - [90msrc/core/publisher_loader.c:60:[0m Published event to file: txn=ea174613-6f57-4d30-aa22-b6d13f85e30c, db=public, table=events
+
+[2026-01-04 19:31:52.870] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=k len=18
+[2026-01-04 19:31:52.986] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=k len=18
+[2026-01-04 19:31:52.986] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=w len=46
+[2026-01-04 19:31:52.986] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1427:[0m XLogData end=0/198DE40 pgoutput=B
+[2026-01-04 19:31:52.986] [36m[DEBUG][0m - [90msrc/core/pg_stream_modular.c:1252:[0m [txn:730603e2-0b97-40bd-8928-d20057793153] BEGIN transaction (pg_xid=762)
+[2026-01-04 19:31:52.986] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=w len=129
+[2026-01-04 19:31:52.986] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1427:[0m XLogData end=0/198DE40 pgoutput=I
+[2026-01-04 19:31:52.986] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:774:[0m Dispatching event publisher=file_output txn=730603e2-0b97-40bd-8928-d20057793153 schema=public table=events LSN=0/198DE40: {"type":"INSERT","txn":"730603e2-0b97-40bd-8928-d20057793153","schema":"public","table":"events","primary_key":["event_id"],"rows":[{"event_id":7,"event_type":"bulk_event_3","event_data":{"batch": 3, "timestamp": 1767535312},"created_at":"2026-01-04 14:01:52.984992"}]}
+[2026-01-04 19:31:52.986] [36m[DEBUG][0m - [90msrc/core/pg_stream_modular.c:785:[0m Dispatched to 1 publisher(s) for schema=public table=events
+[2026-01-04 19:31:52.986] [36m[DEBUG][0m - [90msrc/core/pg_stream_modular.c:1021:[0m INSERT public.events: 1 row captured
+[2026-01-04 19:31:52.986] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=w len=51
+[2026-01-04 19:31:52.986] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1427:[0m XLogData end=0/198DF40 pgoutput=C
+[2026-01-04 19:31:52.986] [36m[DEBUG][0m - [90msrc/core/pg_stream_modular.c:1267:[0m [txn:730603e2-0b97-40bd-8928-d20057793153] COMMIT at LSN 0/198DF10
+[2026-01-04 19:31:52.986] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=k len=18
+[2026-01-04 19:31:52.986] [94m[TRACE][0m - [90msrc/core/publisher_loader.c:60:[0m Published event to file: txn=730603e2-0b97-40bd-8928-d20057793153, db=public, table=events
+[2026-01-04 19:31:53.094] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=k len=18
+[2026-01-04 19:31:53.094] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=w len=46
+[2026-01-04 19:31:53.094] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1427:[0m XLogData end=0/198DF40 pgoutput=B
+[2026-01-04 19:31:53.094] [36m[DEBUG][0m - [90msrc/core/pg_stream_modular.c:1252:[0m [txn:eb49735b-01c5-4719-9b7c-be72bfd16f50] BEGIN transaction (pg_xid=763)
+[2026-01-04 19:31:53.094] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=w len=129
+[2026-01-04 19:31:53.094] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1427:[0m XLogData end=0/198DF40 pgoutput=I
+[2026-01-04 19:31:53.094] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:774:[0m Dispatching event publisher=file_output txn=eb49735b-01c5-4719-9b7c-be72bfd16f50 schema=public table=events LSN=0/198DF40: {"type":"INSERT","txn":"eb49735b-01c5-4719-9b7c-be72bfd16f50","schema":"public","table":"events","primary_key":["event_id"],"rows":[{"event_id":8,"event_type":"bulk_event_4","event_data":{"batch": 4, "timestamp": 1767535313},"created_at":"2026-01-04 14:01:53.093947"}]}
+[2026-01-04 19:31:53.094] [36m[DEBUG][0m - [90msrc/core/pg_stream_modular.c:785:[0m Dispatched to 1 publisher(s) for schema=public table=events
+[2026-01-04 19:31:53.094] [36m[DEBUG][0m - [90msrc/core/pg_stream_modular.c:1021:[0m INSERT public.events: 1 row captured
+[2026-01-04 19:31:53.094] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=w len=51
+[2026-01-04 19:31:53.094] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1427:[0m XLogData end=0/198E058 pgoutput=C
+[2026-01-04 19:31:53.094] [36m[DEBUG][0m - [90msrc/core/pg_stream_modular.c:1267:[0m [txn:eb49735b-01c5-4719-9b7c-be72bfd16f50] COMMIT at LSN 0/198E028
+[2026-01-04 19:31:53.094] [94m[TRACE][0m - [90msrc/core/publisher_loader.c:60:[0m Published event to file: txn=eb49735b-01c5-4719-9b7c-be72bfd16f50, db=public, table=events
+[2026-01-04 19:31:53.094] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=k len=18
+[2026-01-04 19:31:53.210] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=k len=18
+[2026-01-04 19:31:53.210] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=w len=46
+[2026-01-04 19:31:53.210] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1427:[0m XLogData end=0/198E058 pgoutput=B
+[2026-01-04 19:31:53.210] [36m[DEBUG][0m - [90msrc/core/pg_stream_modular.c:1252:[0m [txn:55ce31e5-c5a9-4489-b5dc-cff6a2f26ff1] BEGIN transaction (pg_xid=764)
+[2026-01-04 19:31:53.210] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=w len=129
+[2026-01-04 19:31:53.210] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1427:[0m XLogData end=0/198E058 pgoutput=I
+[2026-01-04 19:31:53.210] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:774:[0m Dispatching event publisher=file_output txn=55ce31e5-c5a9-4489-b5dc-cff6a2f26ff1 schema=public table=events LSN=0/198E058: {"type":"INSERT","txn":"55ce31e5-c5a9-4489-b5dc-cff6a2f26ff1","schema":"public","table":"events","primary_key":["event_id"],"rows":[{"event_id":9,"event_type":"bulk_event_5","event_data":{"batch": 5, "timestamp": 1767535313},"created_at":"2026-01-04 14:01:53.209184"}]}
+[2026-01-04 19:31:53.210] [36m[DEBUG][0m - [90msrc/core/pg_stream_modular.c:785:[0m Dispatched to 1 publisher(s) for schema=public table=events
+[2026-01-04 19:31:53.210] [36m[DEBUG][0m - [90msrc/core/pg_stream_modular.c:1021:[0m INSERT public.events: 1 row captured
+[2026-01-04 19:31:53.210] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=w len=51
+[2026-01-04 19:31:53.210] [94m[TRACE][0m - [90msrc/core/publisher_loader.c:60:[0m Published event to file: txn=55ce31e5-c5a9-4489-b5dc-cff6a2f26ff1, db=public, table=events
+[2026-01-04 19:31:53.210] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1427:[0m XLogData end=0/198E158 pgoutput=C
+[2026-01-04 19:31:53.210] [36m[DEBUG][0m - [90msrc/core/pg_stream_modular.c:1267:[0m [txn:55ce31e5-c5a9-4489-b5dc-cff6a2f26ff1] COMMIT at LSN 0/198E128
+[2026-01-04 19:31:53.210] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=k len=18
+[2026-01-04 19:31:53.323] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=k len=18
+[2026-01-04 19:31:53.323] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=w len=46
+[2026-01-04 19:31:53.323] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1427:[0m XLogData end=0/198E158 pgoutput=B
+[2026-01-04 19:31:53.323] [36m[DEBUG][0m - [90msrc/core/pg_stream_modular.c:1252:[0m [txn:46bf4b01-73d4-418b-a141-03e9e420aefb] BEGIN transaction (pg_xid=765)
+[2026-01-04 19:31:53.323] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=w len=130
+[2026-01-04 19:31:53.323] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1427:[0m XLogData end=0/198E158 pgoutput=I
+[2026-01-04 19:31:53.323] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:774:[0m Dispatching event publisher=file_output txn=46bf4b01-73d4-418b-a141-03e9e420aefb schema=public table=events LSN=0/198E158: {"type":"INSERT","txn":"46bf4b01-73d4-418b-a141-03e9e420aefb","schema":"public","table":"events","primary_key":["event_id"],"rows":[{"event_id":10,"event_type":"bulk_event_6","event_data":{"batch": 6, "timestamp": 1767535313},"created_at":"2026-01-04 14:01:53.322791"}]}
+[2026-01-04 19:31:53.323] [36m[DEBUG][0m - [90msrc/core/pg_stream_modular.c:785:[0m Dispatched to 1 publisher(s) for schema=public table=events
+[2026-01-04 19:31:53.323] [36m[DEBUG][0m - [90msrc/core/pg_stream_modular.c:1021:[0m INSERT public.events: 1 row captured
+[2026-01-04 19:31:53.323] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=w len=51
+[2026-01-04 19:31:53.323] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1427:[0m XLogData end=0/198E258 pgoutput=C
+[2026-01-04 19:31:53.323] [36m[DEBUG][0m - [90msrc/core/pg_stream_modular.c:1267:[0m [txn:46bf4b01-73d4-418b-a141-03e9e420aefb] COMMIT at LSN 0/198E228
+[2026-01-04 19:31:53.323] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=k len=18
+[2026-01-04 19:31:53.323] [94m[TRACE][0m - [90msrc/core/publisher_loader.c:60:[0m Published event to file: txn=46bf4b01-73d4-418b-a141-03e9e420aefb, db=public, table=events
+[2026-01-04 19:31:53.448] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=k len=18
+[2026-01-04 19:31:53.448] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=w len=46
+[2026-01-04 19:31:53.448] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1427:[0m XLogData end=0/198E258 pgoutput=B
+[2026-01-04 19:31:53.448] [36m[DEBUG][0m - [90msrc/core/pg_stream_modular.c:1252:[0m [txn:a2a41732-4eb6-4694-a363-c5b5dc20af50] BEGIN transaction (pg_xid=766)
+[2026-01-04 19:31:53.448] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=w len=130
+[2026-01-04 19:31:53.448] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1427:[0m XLogData end=0/198E258 pgoutput=I
+[2026-01-04 19:31:53.448] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:774:[0m Dispatching event publisher=file_output txn=a2a41732-4eb6-4694-a363-c5b5dc20af50 schema=public table=events LSN=0/198E258: {"type":"INSERT","txn":"a2a41732-4eb6-4694-a363-c5b5dc20af50","schema":"public","table":"events","primary_key":["event_id"],"rows":[{"event_id":11,"event_type":"bulk_event_7","event_data":{"batch": 7, "timestamp": 1767535313},"created_at":"2026-01-04 14:01:53.447614"}]}
+[2026-01-04 19:31:53.448] [36m[DEBUG][0m - [90msrc/core/pg_stream_modular.c:785:[0m Dispatched to 1 publisher(s) for schema=public table=events
+[2026-01-04 19:31:53.448] [36m[DEBUG][0m - [90msrc/core/pg_stream_modular.c:1021:[0m INSERT public.events: 1 row captured
+[2026-01-04 19:31:53.448] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=w len=51
+[2026-01-04 19:31:53.448] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1427:[0m XLogData end=0/198E358 pgoutput=C
+[2026-01-04 19:31:53.448] [36m[DEBUG][0m - [90msrc/core/pg_stream_modular.c:1267:[0m [txn:a2a41732-4eb6-4694-a363-c5b5dc20af50] COMMIT at LSN 0/198E328
+[2026-01-04 19:31:53.448] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=k len=18
+[2026-01-04 19:31:53.448] [94m[TRACE][0m - [90msrc/core/publisher_loader.c:60:[0m Published event to file: txn=a2a41732-4eb6-4694-a363-c5b5dc20af50, db=public, table=events
+[2026-01-04 19:31:53.574] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=k len=18
+[2026-01-04 19:31:53.574] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=w len=46
+[2026-01-04 19:31:53.574] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1427:[0m XLogData end=0/198E358 pgoutput=B
+[2026-01-04 19:31:53.574] [36m[DEBUG][0m - [90msrc/core/pg_stream_modular.c:1252:[0m [txn:e8325f36-6a59-4bbf-8fa3-35646b33789b] BEGIN transaction (pg_xid=767)
+[2026-01-04 19:31:53.574] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=w len=130
+[2026-01-04 19:31:53.574] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1427:[0m XLogData end=0/198E358 pgoutput=I
+[2026-01-04 19:31:53.574] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:774:[0m Dispatching event publisher=file_output txn=e8325f36-6a59-4bbf-8fa3-35646b33789b schema=public table=events LSN=0/198E358: {"type":"INSERT","txn":"e8325f36-6a59-4bbf-8fa3-35646b33789b","schema":"public","table":"events","primary_key":["event_id"],"rows":[{"event_id":12,"event_type":"bulk_event_8","event_data":{"batch": 8, "timestamp": 1767535313},"created_at":"2026-01-04 14:01:53.573395"}]}
+[2026-01-04 19:31:53.574] [36m[DEBUG][0m - [90msrc/core/pg_stream_modular.c:785:[0m Dispatched to 1 publisher(s) for schema=public table=events
+[2026-01-04 19:31:53.574] [36m[DEBUG][0m - [90msrc/core/pg_stream_modular.c:1021:[0m INSERT public.events: 1 row captured
+[2026-01-04 19:31:53.574] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=w len=51
+[2026-01-04 19:31:53.574] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1427:[0m XLogData end=0/198E458 pgoutput=C
+[2026-01-04 19:31:53.574] [36m[DEBUG][0m - [90msrc/core/pg_stream_modular.c:1267:[0m [txn:e8325f36-6a59-4bbf-8fa3-35646b33789b] COMMIT at LSN 0/198E428
+[2026-01-04 19:31:53.574] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=k len=18
+[2026-01-04 19:31:53.574] [94m[TRACE][0m - [90msrc/core/publisher_loader.c:60:[0m Published event to file: txn=e8325f36-6a59-4bbf-8fa3-35646b33789b, db=public, table=events
+[2026-01-04 19:31:53.689] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=k len=18
+[2026-01-04 19:31:53.689] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=w len=46
+[2026-01-04 19:31:53.689] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1427:[0m XLogData end=0/198E458 pgoutput=B
+[2026-01-04 19:31:53.689] [36m[DEBUG][0m - [90msrc/core/pg_stream_modular.c:1252:[0m [txn:6ef2ecf9-cf91-4d43-9fa7-b40d26ed9dd6] BEGIN transaction (pg_xid=768)
+[2026-01-04 19:31:53.689] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=w len=129
+[2026-01-04 19:31:53.689] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1427:[0m XLogData end=0/198E458 pgoutput=I
+[2026-01-04 19:31:53.689] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:774:[0m Dispatching event publisher=file_output txn=6ef2ecf9-cf91-4d43-9fa7-b40d26ed9dd6 schema=public table=events LSN=0/198E458: {"type":"INSERT","txn":"6ef2ecf9-cf91-4d43-9fa7-b40d26ed9dd6","schema":"public","table":"events","primary_key":["event_id"],"rows":[{"event_id":13,"event_type":"bulk_event_9","event_data":{"batch": 9, "timestamp": 1767535313},"created_at":"2026-01-04 14:01:53.68894"}]}
+[2026-01-04 19:31:53.689] [36m[DEBUG][0m - [90msrc/core/pg_stream_modular.c:785:[0m Dispatched to 1 publisher(s) for schema=public table=events
+[2026-01-04 19:31:53.689] [36m[DEBUG][0m - [90msrc/core/pg_stream_modular.c:1021:[0m INSERT public.events: 1 row captured
+[2026-01-04 19:31:53.689] [94m[TRACE][0m - [90msrc/core/publisher_loader.c:60:[0m Published event to file: txn=6ef2ecf9-cf91-4d43-9fa7-b40d26ed9dd6, db=public, table=events
+[2026-01-04 19:31:53.689] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=w len=51
+[2026-01-04 19:31:53.689] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1427:[0m XLogData end=0/198E558 pgoutput=C
+[2026-01-04 19:31:53.689] [36m[DEBUG][0m - [90msrc/core/pg_stream_modular.c:1267:[0m [txn:6ef2ecf9-cf91-4d43-9fa7-b40d26ed9dd6] COMMIT at LSN 0/198E528
+[2026-01-04 19:31:53.689] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=k len=18
+[2026-01-04 19:31:53.808] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=k len=18
+[2026-01-04 19:31:53.808] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=w len=46
+[2026-01-04 19:31:53.808] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1427:[0m XLogData end=0/198E558 pgoutput=B
+[2026-01-04 19:31:53.808] [36m[DEBUG][0m - [90msrc/core/pg_stream_modular.c:1252:[0m [txn:c4a5c8f1-4f14-4322-8799-8509fed686c8] BEGIN transaction (pg_xid=769)
+[2026-01-04 19:31:53.808] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=w len=131
+[2026-01-04 19:31:53.808] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1427:[0m XLogData end=0/198E558 pgoutput=I
+[2026-01-04 19:31:53.808] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:774:[0m Dispatching event publisher=file_output txn=c4a5c8f1-4f14-4322-8799-8509fed686c8 schema=public table=events LSN=0/198E558: {"type":"INSERT","txn":"c4a5c8f1-4f14-4322-8799-8509fed686c8","schema":"public","table":"events","primary_key":["event_id"],"rows":[{"event_id":14,"event_type":"bulk_event_10","event_data":{"batch": 10, "timestamp": 1767535313},"created_at":"2026-01-04 14:01:53.80802"}]}
+[2026-01-04 19:31:53.808] [36m[DEBUG][0m - [90msrc/core/pg_stream_modular.c:785:[0m Dispatched to 1 publisher(s) for schema=public table=events
+[2026-01-04 19:31:53.808] [36m[DEBUG][0m - [90msrc/core/pg_stream_modular.c:1021:[0m INSERT public.events: 1 row captured
+[2026-01-04 19:31:53.808] [94m[TRACE][0m - [90msrc/core/publisher_loader.c:60:[0m Published event to file: txn=c4a5c8f1-4f14-4322-8799-8509fed686c8, db=public, table=events
+[2026-01-04 19:31:53.808] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=w len=51
+[2026-01-04 19:31:53.808] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1427:[0m XLogData end=0/198E658 pgoutput=C
+[2026-01-04 19:31:53.808] [36m[DEBUG][0m - [90msrc/core/pg_stream_modular.c:1267:[0m [txn:c4a5c8f1-4f14-4322-8799-8509fed686c8] COMMIT at LSN 0/198E628
+[2026-01-04 19:31:53.808] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=k len=18
+[2026-01-04 19:31:55.986] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=k len=18
+[2026-01-04 19:31:55.986] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=w len=46
+[2026-01-04 19:31:55.986] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1427:[0m XLogData end=0/198E658 pgoutput=B
+[2026-01-04 19:31:55.986] [36m[DEBUG][0m - [90msrc/core/pg_stream_modular.c:1252:[0m [txn:644779bf-5085-4ba0-a19f-31f3170c2408] BEGIN transaction (pg_xid=770)
+[2026-01-04 19:31:55.986] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=w len=156
+[2026-01-04 19:31:55.986] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1427:[0m XLogData end=0/198E658 pgoutput=I
+[2026-01-04 19:31:55.986] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:774:[0m Dispatching event publisher=file_output txn=644779bf-5085-4ba0-a19f-31f3170c2408 schema=public table=users LSN=0/198E658: {"type":"INSERT","txn":"644779bf-5085-4ba0-a19f-31f3170c2408","schema":"public","table":"users","primary_key":["id"],"rows":[{"id":6,"username":"frank","email":"frank@example.com","status":"active","balance":500.00,"metadata":null,"created_at":"2026-01-04 14:01:55.985546","updated_at":"2026-01-04 14:01:55.985546"}]}
+[2026-01-04 19:31:55.986] [36m[DEBUG][0m - [90msrc/core/pg_stream_modular.c:785:[0m Dispatched to 1 publisher(s) for schema=public table=users
+[2026-01-04 19:31:55.986] [36m[DEBUG][0m - [90msrc/core/pg_stream_modular.c:1021:[0m INSERT public.users: 1 row captured
+[2026-01-04 19:31:55.986] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=w len=120
+[2026-01-04 19:31:55.986] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1427:[0m XLogData end=0/198E798 pgoutput=I
+[2026-01-04 19:31:55.986] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:774:[0m Dispatching event publisher=file_output txn=644779bf-5085-4ba0-a19f-31f3170c2408 schema=public table=orders LSN=0/198E798: {"type":"INSERT","txn":"644779bf-5085-4ba0-a19f-31f3170c2408","schema":"public","table":"orders","primary_key":["order_id"],"rows":[{"order_id":7,"user_id":6,"product_name":"Welcome Gift","quantity":1,"total_amount":0.00,"order_status":"pending","created_at":"2026-01-04 14:01:55.985546"}]}
+[2026-01-04 19:31:55.986] [36m[DEBUG][0m - [90msrc/core/pg_stream_modular.c:785:[0m Dispatched to 1 publisher(s) for schema=public table=orders
+[2026-01-04 19:31:55.986] [36m[DEBUG][0m - [90msrc/core/pg_stream_modular.c:1021:[0m INSERT public.orders: 1 row captured
+[2026-01-04 19:31:55.986] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=w len=342
+[2026-01-04 19:31:55.986] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1427:[0m XLogData end=0/198E878 pgoutput=U
+[2026-01-04 19:31:55.986] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:774:[0m Dispatching event publisher=file_output txn=644779bf-5085-4ba0-a19f-31f3170c2408 schema=public table=users LSN=0/198E878: {"type":"UPDATE","txn":"644779bf-5085-4ba0-a19f-31f3170c2408","schema":"public","table":"users","primary_key":["id"],"rows":[{"before":{"id":1,"username":"alice","email":"alice@example.com","status":"active","balance":1100.00,"metadata":{"vip": true, "level": 5},"created_at":"2026-01-04 14:01:12.138633","updated_at":"2026-01-04 14:01:12.138633"},"after":{"id":1,"username":"alice","email":"alice@example.com","status":"active","balance":1050.00,"metadata":{"vip": true, "level": 5},"created_at":"2026-01-04 14:01:12.138633","updated_at":"2026-01-04 14:01:12.138633"}}]}
+[2026-01-04 19:31:55.986] [36m[DEBUG][0m - [90msrc/core/pg_stream_modular.c:785:[0m Dispatched to 1 publisher(s) for schema=public table=users
+[2026-01-04 19:31:55.986] [36m[DEBUG][0m - [90msrc/core/pg_stream_modular.c:1156:[0m UPDATE public.users: 1 row captured
+[2026-01-04 19:31:55.986] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=w len=51
+[2026-01-04 19:31:55.986] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1427:[0m XLogData end=0/198E9B0 pgoutput=C
+[2026-01-04 19:31:55.986] [36m[DEBUG][0m - [90msrc/core/pg_stream_modular.c:1267:[0m [txn:644779bf-5085-4ba0-a19f-31f3170c2408] COMMIT at LSN 0/198E980
+[2026-01-04 19:31:55.986] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=k len=18
+[2026-01-04 19:31:55.986] [94m[TRACE][0m - [90msrc/core/publisher_loader.c:60:[0m Published event to file: txn=644779bf-5085-4ba0-a19f-31f3170c2408, db=public, table=users
+[2026-01-04 19:31:55.986] [94m[TRACE][0m - [90msrc/core/publisher_loader.c:60:[0m Published event to file: txn=644779bf-5085-4ba0-a19f-31f3170c2408, db=public, table=orders
+[2026-01-04 19:31:55.986] [94m[TRACE][0m - [90msrc/core/publisher_loader.c:60:[0m Published event to file: txn=644779bf-5085-4ba0-a19f-31f3170c2408, db=public, table=users
+[2026-01-04 19:31:57.597] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=k len=18
+[2026-01-04 19:31:57.597] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=k len=18
+[2026-01-04 19:32:02.622] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=k len=18
+[2026-01-04 19:32:12.640] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=k len=18
+[2026-01-04 19:32:22.668] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=k len=18
+[2026-01-04 19:32:32.697] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=k len=18
+[2026-01-04 19:32:42.751] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=k len=18
+[2026-01-04 19:32:52.324] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=k len=18
+[2026-01-04 19:32:52.324] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=k len=18
+[2026-01-04 19:32:52.325] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=k len=18
+[2026-01-04 19:32:52.526] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=k len=18
+[2026-01-04 19:32:52.533] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=k len=18
+[2026-01-04 19:33:02.565] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=k len=18
+[2026-01-04 19:33:12.583] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=k len=18
+[2026-01-04 19:33:22.606] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=k len=18
+[2026-01-04 19:33:32.643] [94m[TRACE][0m - [90msrc/core/pg_stream_modular.c:1411:[0m COPY msg lead=k len=18

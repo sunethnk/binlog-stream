@@ -7,7 +7,12 @@ build/
 
 # Runtime data
 data/binlog_checkpoint.dat
+data/pg_checkpoint.dat
 data/*.log
+
+#Test Data
+docker/test_output/mysql/*
+docker/test_output/postgres/*
 
 # Python
 __pycache__/

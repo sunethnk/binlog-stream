@@ -1,0 +1,288 @@
+========================================================================================================================
+ BINLOG STREAMER                                     v1.0.0       build: 2026-01-04T19:20:53-423b6de
+ PID: 3826426
+========================================================================================================================
+
+[2026-01-04 19:31:29.100] [32m[INFO ][0m - [90msrc/core/binlog_stream_modular.c:533:[0m Configured database 'testdb' (DML:1, DDL:1, tables:3)
+[2026-01-04 19:31:29.100] [32m[INFO ][0m - [90msrc/core/publisher_loader.c:286:[0m Loading publisher plugin: example from ./build/lib/example_publisher.so skipped
+[2026-01-04 19:31:29.100] [33m[WARN ][0m - [90msrc/core/binlog_stream_modular.c:618:[0m Failed to load publisher plugin: example
+[2026-01-04 19:31:29.101] [32m[INFO ][0m - [90msrc/core/publisher_loader.c:290:[0m Loading publisher plugin: file_output from build/lib/file_publisher.so 49
+[2026-01-04 19:31:29.101] [32m[INFO ][0m - [90msrc/core/publisher_loader.c:422:[0m Loaded plugin: file_publisher v1.0.0
+[2026-01-04 19:31:29.101] [32m[INFO ][0m - [90msrc/core/publisher_loader.c:42:[0m Initializing file publisher
+[2026-01-04 19:31:29.101] [32m[INFO ][0m - [90msrc/core/publisher_loader.c:42:[0m File publisher configured: path=test_output/mysql/mysql_cdc_testdb.users.json, flush=1, rotate_max_events=1000, rotate_max_files=10
+[2026-01-04 19:31:29.101] [94m[TRACE][0m - [90msrc/core/publisher_loader.c:184:[0m Initializing queue for file_output
+[2026-01-04 19:31:29.101] [94m[TRACE][0m - [90msrc/core/publisher_loader.c:192:[0m Queue depth set for file_output is 1024
+[2026-01-04 19:31:29.101] [32m[INFO ][0m - [90msrc/core/publisher_loader.c:447:[0m Publisher file_output loaded successfully (active=1, databases=1)
+[2026-01-04 19:31:29.101] [32m[INFO ][0m - [90msrc/core/binlog_stream_modular.c:616:[0m Loaded publisher plugin: file_output
+[2026-01-04 19:31:29.101] [32m[INFO ][0m - [90msrc/core/publisher_loader.c:286:[0m Loading publisher plugin: zmq_stream from ./build/lib/zmq_publisher.so skipped
+[2026-01-04 19:31:29.101] [33m[WARN ][0m - [90msrc/core/binlog_stream_modular.c:618:[0m Failed to load publisher plugin: zmq_stream
+[2026-01-04 19:31:29.101] [32m[INFO ][0m - [90msrc/core/publisher_loader.c:286:[0m Loading publisher plugin: udp_publisher from ./build/lib/udp_publisher.so skipped
+[2026-01-04 19:31:29.101] [33m[WARN ][0m - [90msrc/core/binlog_stream_modular.c:618:[0m Failed to load publisher plugin: udp_publisher
+[2026-01-04 19:31:29.101] [32m[INFO ][0m - [90msrc/core/publisher_loader.c:286:[0m Loading publisher plugin: kafka_producer from ./build/lib/kafka_publisher.so skipped
+[2026-01-04 19:31:29.101] [33m[WARN ][0m - [90msrc/core/binlog_stream_modular.c:618:[0m Failed to load publisher plugin: kafka_producer
+[2026-01-04 19:31:29.101] [32m[INFO ][0m - [90msrc/core/publisher_loader.c:286:[0m Loading publisher plugin: redis_publisher from ./build/lib/redis_publisher.so skipped
+[2026-01-04 19:31:29.101] [33m[WARN ][0m - [90msrc/core/binlog_stream_modular.c:618:[0m Failed to load publisher plugin: redis_publisher
+[2026-01-04 19:31:29.101] [32m[INFO ][0m - [90msrc/core/publisher_loader.c:286:[0m Loading publisher plugin: webhook_publisher from ./build/lib/webhook_publisher.so skipped
+[2026-01-04 19:31:29.101] [33m[WARN ][0m - [90msrc/core/binlog_stream_modular.c:618:[0m Failed to load publisher plugin: webhook_publisher
+[2026-01-04 19:31:29.101] [32m[INFO ][0m - [90msrc/core/publisher_loader.c:286:[0m Loading publisher plugin: syslog_publisher from ./build/lib/syslog_publisher.so skipped
+[2026-01-04 19:31:29.101] [33m[WARN ][0m - [90msrc/core/binlog_stream_modular.c:618:[0m Failed to load publisher plugin: syslog_publisher
+[2026-01-04 19:31:29.101] [32m[INFO ][0m - [90msrc/core/publisher_loader.c:286:[0m Loading publisher plugin: lua_publisher from ./build/lib/lua_publisher.so skipped
+[2026-01-04 19:31:29.101] [33m[WARN ][0m - [90msrc/core/binlog_stream_modular.c:618:[0m Failed to load publisher plugin: lua_publisher
+[2026-01-04 19:31:29.101] [32m[INFO ][0m - [90msrc/core/publisher_loader.c:286:[0m Loading publisher plugin: python_publisher from ./build/lib/python_publisher.so skipped
+[2026-01-04 19:31:29.101] [33m[WARN ][0m - [90msrc/core/binlog_stream_modular.c:618:[0m Failed to load publisher plugin: python_publisher
+[2026-01-04 19:31:29.101] [32m[INFO ][0m - [90msrc/core/publisher_loader.c:286:[0m Loading publisher plugin: java_publisher from ./build/lib/java_publisher.so skipped
+[2026-01-04 19:31:29.101] [33m[WARN ][0m - [90msrc/core/binlog_stream_modular.c:618:[0m Failed to load publisher plugin: java_publisher
+[2026-01-04 19:31:29.101] [32m[INFO ][0m - [90msrc/core/binlog_stream_modular.c:630:[0m Configuration loaded successfully
+[2026-01-04 19:31:29.101] [32m[INFO ][0m - [90msrc/core/binlog_stream_modular.c:631:[0m Master: 127.0.0.1:3306
+[2026-01-04 19:31:29.101] [32m[INFO ][0m - [90msrc/core/binlog_stream_modular.c:632:[0m Server ID: 100
+[2026-01-04 19:31:29.101] [32m[INFO ][0m - [90msrc/core/binlog_stream_modular.c:633:[0m Binlog: current @ 8475
+[2026-01-04 19:31:29.101] [32m[INFO ][0m - [90msrc/core/binlog_stream_modular.c:634:[0m Save position every: 1000 events
+[2026-01-04 19:31:29.101] [32m[INFO ][0m - [90msrc/core/binlog_stream_modular.c:308:[0m ========== Capture Configuration ==========
+[2026-01-04 19:31:29.101] [32m[INFO ][0m - [90msrc/core/binlog_stream_modular.c:311:[0m Database: testdb (DML:YES, DDL:YES, tables:3)
+[2026-01-04 19:31:29.101] [32m[INFO ][0m - [90msrc/core/binlog_stream_modular.c:320:[0m   -> testdb.users: ALL COLUMNS (wildcard)
+[2026-01-04 19:31:29.101] [32m[INFO ][0m - [90msrc/core/binlog_stream_modular.c:320:[0m   -> testdb.orders: ALL COLUMNS (wildcard)
+[2026-01-04 19:31:29.101] [32m[INFO ][0m - [90msrc/core/binlog_stream_modular.c:320:[0m   -> testdb.events: ALL COLUMNS (wildcard)
+[2026-01-04 19:31:29.101] [32m[INFO ][0m - [90msrc/core/binlog_stream_modular.c:333:[0m ==========================================
+[2026-01-04 19:31:29.101] [32m[INFO ][0m - [90msrc/core/publisher_loader.c:458:[0m Starting publisher: file_output
+[2026-01-04 19:31:29.101] [32m[INFO ][0m - [90msrc/core/publisher_loader.c:42:[0m Starting file publisher: test_output/mysql/mysql_cdc_testdb.users.json
+[2026-01-04 19:31:29.101] [32m[INFO ][0m - [90msrc/core/publisher_loader.c:42:[0m File publisher started: test_output/mysql/mysql_cdc_testdb.users.json
+[2026-01-04 19:31:29.101] [32m[INFO ][0m - [90msrc/core/publisher_loader.c:477:[0m Publisher file_output started
+[2026-01-04 19:31:29.101] [32m[INFO ][0m - [90msrc/core/binlog_stream_modular.c:2312:[0m Started publisher: file_output
+[2026-01-04 19:31:29.101] [32m[INFO ][0m - [90msrc/core/publisher_loader.c:226:[0m Publisher worker started: file_output
+[2026-01-04 19:31:29.117] [32m[INFO ][0m - [90msrc/core/binlog_stream_modular.c:2347:[0m Metadata connection established
+[2026-01-04 19:31:29.122] [32m[INFO ][0m - [90msrc/core/binlog_stream_modular.c:2245:[0m Streaming from mysql-bin.000003 @ 197
+[2026-01-04 19:31:29.122] [32m[INFO ][0m - [90msrc/core/binlog_stream_modular.c:2246:[0m Waiting for events (Ctrl+C to stop)...
+[2026-01-04 19:31:29.122] [32m[INFO ][0m - [90msrc/core/binlog_stream_modular.c:2138:[0m ROTATE to 'mysql-bin.000003' @ 197
+[2026-01-04 19:31:29.122] [32m[INFO ][0m - [90msrc/core/binlog_stream_modular.c:658:[0m Checkpoint saved: mysql-bin.000003 @ 197
+[2026-01-04 19:31:29.122] [32m[INFO ][0m - [90msrc/core/binlog_stream_modular.c:2114:[0m FORMAT_DESCRIPTION ver=4
+[2026-01-04 19:31:39.284] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1784:[0m [txn:d9063897-2971-487a-80c0-d2f12237dae8] BEGIN transaction
+[2026-01-04 19:31:39.284] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1796:[0m [txn:d9063897-2971-487a-80c0-d2f12237dae8] BEGIN db=testdb: BEGIN
+[2026-01-04 19:31:39.284] [94m[TRACE][0m - [90msrc/core/binlog_stream_modular.c:909:[0m Fetched 7 column names for testdb.users
+[2026-01-04 19:31:39.284] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1137:[0m [txn:d9063897-2971-487a-80c0-d2f12237dae8] TABLE_MAP tid=89 db='testdb' table='users' ncols=7 (table_changed=1)
+[2026-01-04 19:31:39.286] [94m[TRACE][0m - [90msrc/core/binlog_stream_modular.c:856:[0m Loaded 3 ENUM values for testdb.users.status
+[2026-01-04 19:31:39.286] [94m[TRACE][0m - [90msrc/core/binlog_stream_modular.c:1856:[0m Dispatching event publisher=file_output txn=d9063897-2971-487a-80c0-d2f12237dae8 db=testdb table=users binlog_file=mysql-bin.000003 position=548 : {"type":"INSERT","txn":"d9063897-2971-487a-80c0-d2f12237dae8","db":"testdb","table":"users","primary_key":["id"],"rows":[{"id":4,"username":"david","email":"david@example.com","status":"active","balance":"750.00","created_at":"2026-01-04 19:31:39","updated_at":"2026-01-04 19:31:39"},{"id":5,"username":"eve","email":"eve@example.com","status":"pending","balance":"250.00","created_at":"2026-01-04 19:31:39","updated_at":"2026-01-04 19:31:39"}]}
+[2026-01-04 19:31:39.286] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1868:[0m Dispatched to 1 publisher(s) for db=testdb table=users
+[2026-01-04 19:31:39.286] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1930:[0m INSERT testdb.users: 2 row(s) captured
+[2026-01-04 19:31:39.286] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:2174:[0m [txn:d9063897-2971-487a-80c0-d2f12237dae8] XID COMMIT (server_xid=25)
+[2026-01-04 19:31:39.286] [94m[TRACE][0m - [90msrc/core/publisher_loader.c:60:[0m Published event to file: txn=d9063897-2971-487a-80c0-d2f12237dae8, db=testdb, table=users
+[2026-01-04 19:31:39.286] [94m[TRACE][0m - [90msrc/core/binlog_stream_modular.c:1856:[0m Dispatching event publisher=file_output txn=d9063897-2971-487a-80c0-d2f12237dae8 db=testdb table=COMMIT binlog_file=mysql-bin.000003 position=579 : {"type":"COMMIT","txn":"d9063897-2971-487a-80c0-d2f12237dae8","db":"testdb","xid":25}
+[2026-01-04 19:31:39.286] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1868:[0m Dispatched to 1 publisher(s) for db=testdb table=COMMIT
+[2026-01-04 19:31:39.286] [94m[TRACE][0m - [90msrc/core/publisher_loader.c:60:[0m Published event to file: txn=d9063897-2971-487a-80c0-d2f12237dae8, db=testdb, table=COMMIT
+[2026-01-04 19:31:41.442] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1784:[0m [txn:da55431b-9899-41a8-a55b-3da90792b98f] BEGIN transaction
+[2026-01-04 19:31:41.442] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1796:[0m [txn:da55431b-9899-41a8-a55b-3da90792b98f] BEGIN db=testdb: BEGIN
+[2026-01-04 19:31:41.442] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:872:[0m Using cached column names for testdb.users
+[2026-01-04 19:31:41.442] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1137:[0m [txn:da55431b-9899-41a8-a55b-3da90792b98f] TABLE_MAP tid=89 db='testdb' table='users' ncols=7 (table_changed=0)
+[2026-01-04 19:31:41.442] [94m[TRACE][0m - [90msrc/core/binlog_stream_modular.c:1856:[0m Dispatching event publisher=file_output txn=da55431b-9899-41a8-a55b-3da90792b98f db=testdb table=users binlog_file=mysql-bin.000003 position=944 : {"type":"UPDATE","txn":"da55431b-9899-41a8-a55b-3da90792b98f","db":"testdb","table":"users","primary_key":["id"],"rows":[{"before":{"id":1,"username":"alice","email":"alice@example.com","status":"active","balance":"1000.00","created_at":"2026-01-04 19:31:15","updated_at":"2026-01-04 19:31:15"},"after":{"id":1,"username":"alice","email":"alice@example.com","status":"active","balance":"1100.00","created_at":"2026-01-04 19:31:15","updated_at":"2026-01-04 19:31:41"}}]}
+[2026-01-04 19:31:41.442] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1868:[0m Dispatched to 1 publisher(s) for db=testdb table=users
+[2026-01-04 19:31:41.442] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1985:[0m UPDATE testdb.users: 1 row(s) captured
+[2026-01-04 19:31:41.442] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:2174:[0m [txn:da55431b-9899-41a8-a55b-3da90792b98f] XID COMMIT (server_xid=30)
+[2026-01-04 19:31:41.442] [94m[TRACE][0m - [90msrc/core/binlog_stream_modular.c:1856:[0m Dispatching event publisher=file_output txn=da55431b-9899-41a8-a55b-3da90792b98f db=testdb table=COMMIT binlog_file=mysql-bin.000003 position=975 : {"type":"COMMIT","txn":"da55431b-9899-41a8-a55b-3da90792b98f","db":"testdb","xid":30}
+[2026-01-04 19:31:41.442] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1868:[0m Dispatched to 1 publisher(s) for db=testdb table=COMMIT
+[2026-01-04 19:31:41.442] [94m[TRACE][0m - [90msrc/core/publisher_loader.c:60:[0m Published event to file: txn=da55431b-9899-41a8-a55b-3da90792b98f, db=testdb, table=users
+[2026-01-04 19:31:41.442] [94m[TRACE][0m - [90msrc/core/publisher_loader.c:60:[0m Published event to file: txn=da55431b-9899-41a8-a55b-3da90792b98f, db=testdb, table=COMMIT
+[2026-01-04 19:31:41.580] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1784:[0m [txn:75a7e313-5c88-425f-8108-e2e0b3e8f1a0] BEGIN transaction
+[2026-01-04 19:31:41.580] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1796:[0m [txn:75a7e313-5c88-425f-8108-e2e0b3e8f1a0] BEGIN db=testdb: BEGIN
+[2026-01-04 19:31:41.580] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:872:[0m Using cached column names for testdb.users
+[2026-01-04 19:31:41.580] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1137:[0m [txn:75a7e313-5c88-425f-8108-e2e0b3e8f1a0] TABLE_MAP tid=89 db='testdb' table='users' ncols=7 (table_changed=0)
+[2026-01-04 19:31:41.580] [94m[TRACE][0m - [90msrc/core/binlog_stream_modular.c:1856:[0m Dispatching event publisher=file_output txn=75a7e313-5c88-425f-8108-e2e0b3e8f1a0 db=testdb table=users binlog_file=mysql-bin.000003 position=1348 : {"type":"UPDATE","txn":"75a7e313-5c88-425f-8108-e2e0b3e8f1a0","db":"testdb","table":"users","primary_key":["id"],"rows":[{"before":{"id":3,"username":"charlie","email":"charlie@example.com","status":"inactive","balance":"0.00","created_at":"2026-01-04 19:31:15","updated_at":"2026-01-04 19:31:15"},"after":{"id":3,"username":"charlie","email":"charlie@example.com","status":"active","balance":"0.00","created_at":"2026-01-04 19:31:15","updated_at":"2026-01-04 19:31:41"}}]}
+[2026-01-04 19:31:41.580] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1868:[0m Dispatched to 1 publisher(s) for db=testdb table=users
+[2026-01-04 19:31:41.580] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1985:[0m UPDATE testdb.users: 1 row(s) captured
+[2026-01-04 19:31:41.580] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:2174:[0m [txn:75a7e313-5c88-425f-8108-e2e0b3e8f1a0] XID COMMIT (server_xid=33)
+[2026-01-04 19:31:41.580] [94m[TRACE][0m - [90msrc/core/binlog_stream_modular.c:1856:[0m Dispatching event publisher=file_output txn=75a7e313-5c88-425f-8108-e2e0b3e8f1a0 db=testdb table=COMMIT binlog_file=mysql-bin.000003 position=1379 : {"type":"COMMIT","txn":"75a7e313-5c88-425f-8108-e2e0b3e8f1a0","db":"testdb","xid":33}
+[2026-01-04 19:31:41.580] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1868:[0m Dispatched to 1 publisher(s) for db=testdb table=COMMIT
+[2026-01-04 19:31:41.580] [94m[TRACE][0m - [90msrc/core/publisher_loader.c:60:[0m Published event to file: txn=75a7e313-5c88-425f-8108-e2e0b3e8f1a0, db=testdb, table=users
+[2026-01-04 19:31:41.580] [94m[TRACE][0m - [90msrc/core/publisher_loader.c:60:[0m Published event to file: txn=75a7e313-5c88-425f-8108-e2e0b3e8f1a0, db=testdb, table=COMMIT
+[2026-01-04 19:31:43.748] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1784:[0m [txn:1db1c967-520a-475d-a3a3-6457480fd8d6] BEGIN transaction
+[2026-01-04 19:31:43.748] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1796:[0m [txn:1db1c967-520a-475d-a3a3-6457480fd8d6] BEGIN db=testdb: BEGIN
+[2026-01-04 19:31:43.749] [94m[TRACE][0m - [90msrc/core/binlog_stream_modular.c:909:[0m Fetched 7 column names for testdb.orders
+[2026-01-04 19:31:43.749] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1137:[0m [txn:1db1c967-520a-475d-a3a3-6457480fd8d6] TABLE_MAP tid=93 db='testdb' table='orders' ncols=7 (table_changed=1)
+[2026-01-04 19:31:43.749] [94m[TRACE][0m - [90msrc/core/binlog_stream_modular.c:1856:[0m Dispatching event publisher=file_output txn=1db1c967-520a-475d-a3a3-6457480fd8d6 db=testdb table=orders binlog_file=mysql-bin.000003 position=1762 : {"type":"INSERT","txn":"1db1c967-520a-475d-a3a3-6457480fd8d6","db":"testdb","table":"orders","primary_key":["order_id"],"rows":[{"order_id":4,"user_id":4,"product_name":"Monitor","quantity":1,"total_amount":"299.99","order_status":"pending","created_at":"2026-01-04 19:31:43"},{"order_id":5,"user_id":5,"product_name":"Webcam","quantity":2,"total_amount":"89.98","order_status":"pending","created_at":"2026-01-04 19:31:43"},{"order_id":6,"user_id":1,"product_name":"USB Cable","quantity":3,"total_amount":"14.97","order_status":"completed","created_at":"2026-01-04 19:31:43"}]}
+[2026-01-04 19:31:43.749] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1868:[0m Dispatched to 1 publisher(s) for db=testdb table=orders
+[2026-01-04 19:31:43.749] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1930:[0m INSERT testdb.orders: 3 row(s) captured
+[2026-01-04 19:31:43.749] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:2174:[0m [txn:1db1c967-520a-475d-a3a3-6457480fd8d6] XID COMMIT (server_xid=38)
+[2026-01-04 19:31:43.749] [94m[TRACE][0m - [90msrc/core/binlog_stream_modular.c:1856:[0m Dispatching event publisher=file_output txn=1db1c967-520a-475d-a3a3-6457480fd8d6 db=testdb table=COMMIT binlog_file=mysql-bin.000003 position=1793 : {"type":"COMMIT","txn":"1db1c967-520a-475d-a3a3-6457480fd8d6","db":"testdb","xid":38}
+[2026-01-04 19:31:43.749] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1868:[0m Dispatched to 1 publisher(s) for db=testdb table=COMMIT
+[2026-01-04 19:31:43.749] [94m[TRACE][0m - [90msrc/core/publisher_loader.c:60:[0m Published event to file: txn=1db1c967-520a-475d-a3a3-6457480fd8d6, db=testdb, table=orders
+[2026-01-04 19:31:43.749] [94m[TRACE][0m - [90msrc/core/publisher_loader.c:60:[0m Published event to file: txn=1db1c967-520a-475d-a3a3-6457480fd8d6, db=testdb, table=COMMIT
+[2026-01-04 19:31:45.917] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1784:[0m [txn:5c7acdd6-318b-4516-ad8b-30440f3cc100] BEGIN transaction
+[2026-01-04 19:31:45.917] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1796:[0m [txn:5c7acdd6-318b-4516-ad8b-30440f3cc100] BEGIN db=testdb: BEGIN
+[2026-01-04 19:31:45.917] [94m[TRACE][0m - [90msrc/core/binlog_stream_modular.c:909:[0m Fetched 4 column names for testdb.events
+[2026-01-04 19:31:45.917] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1137:[0m [txn:5c7acdd6-318b-4516-ad8b-30440f3cc100] TABLE_MAP tid=94 db='testdb' table='events' ncols=4 (table_changed=1)
+[2026-01-04 19:31:45.917] [94m[TRACE][0m - [90msrc/core/binlog_stream_modular.c:1856:[0m Dispatching event publisher=file_output txn=5c7acdd6-318b-4516-ad8b-30440f3cc100 db=testdb table=events binlog_file=mysql-bin.000003 position=2228 : {"type":"INSERT","txn":"5c7acdd6-318b-4516-ad8b-30440f3cc100","db":"testdb","table":"events","primary_key":["event_id"],"rows":[{"event_id":3,"event_type":"payment_processed","event_data":"0x0003004000190006001f000600250007000b2c000c3400050100616d6f756e746d6574686f64757365725f6964a4703d0ad7bf72400b6372656469745f636172…","created_at":"2026-01-04 19:31:45"},{"event_id":4,"event_type":"order_shipped","event_data":"0x0002002e00120008001a0008000504000c22006f726465725f6964747261636b696e670b545241434b313233343536","created_at":"2026-01-04 19:31:45"}]}
+[2026-01-04 19:31:45.917] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1868:[0m Dispatched to 1 publisher(s) for db=testdb table=events
+[2026-01-04 19:31:45.917] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1930:[0m INSERT testdb.events: 2 row(s) captured
+[2026-01-04 19:31:45.917] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:2174:[0m [txn:5c7acdd6-318b-4516-ad8b-30440f3cc100] XID COMMIT (server_xid=42)
+[2026-01-04 19:31:45.917] [94m[TRACE][0m - [90msrc/core/binlog_stream_modular.c:1856:[0m Dispatching event publisher=file_output txn=5c7acdd6-318b-4516-ad8b-30440f3cc100 db=testdb table=COMMIT binlog_file=mysql-bin.000003 position=2259 : {"type":"COMMIT","txn":"5c7acdd6-318b-4516-ad8b-30440f3cc100","db":"testdb","xid":42}
+[2026-01-04 19:31:45.917] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1868:[0m Dispatched to 1 publisher(s) for db=testdb table=COMMIT
+[2026-01-04 19:31:45.917] [94m[TRACE][0m - [90msrc/core/publisher_loader.c:60:[0m Published event to file: txn=5c7acdd6-318b-4516-ad8b-30440f3cc100, db=testdb, table=events
+[2026-01-04 19:31:45.917] [94m[TRACE][0m - [90msrc/core/publisher_loader.c:60:[0m Published event to file: txn=5c7acdd6-318b-4516-ad8b-30440f3cc100, db=testdb, table=COMMIT
+[2026-01-04 19:31:48.078] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1784:[0m [txn:045d935b-efe1-4f66-bc3b-1015d3abed34] BEGIN transaction
+[2026-01-04 19:31:48.078] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1796:[0m [txn:045d935b-efe1-4f66-bc3b-1015d3abed34] BEGIN db=testdb: BEGIN
+[2026-01-04 19:31:48.078] [94m[TRACE][0m - [90msrc/core/binlog_stream_modular.c:909:[0m Fetched 7 column names for testdb.orders
+[2026-01-04 19:31:48.078] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1137:[0m [txn:045d935b-efe1-4f66-bc3b-1015d3abed34] TABLE_MAP tid=93 db='testdb' table='orders' ncols=7 (table_changed=1)
+[2026-01-04 19:31:48.078] [94m[TRACE][0m - [90msrc/core/binlog_stream_modular.c:1856:[0m Dispatching event publisher=file_output txn=045d935b-efe1-4f66-bc3b-1015d3abed34 db=testdb table=orders binlog_file=mysql-bin.000003 position=2692 : {"type":"UPDATE","txn":"045d935b-efe1-4f66-bc3b-1015d3abed34","db":"testdb","table":"orders","primary_key":["order_id"],"rows":[{"before":{"order_id":4,"user_id":4,"product_name":"Monitor","quantity":1,"total_amount":"299.99","order_status":"pending","created_at":"2026-01-04 19:31:43"},"after":{"order_id":4,"user_id":4,"product_name":"Monitor","quantity":1,"total_amount":"299.99","order_status":"processing","created_at":"2026-01-04 19:31:43"}},{"before":{"order_id":5,"user_id":5,"product_name":"Webcam","quantity":2,"total_amount":"89.98","order_status":"pending","created_at":"2026-01-04 19:31:43"},"after":{"order_id":5,"user_id":5,"product_name":"Webcam","quantity":2,"total_amount":"89.98","order_status":"processing","created_at":"2026-01-04 19:31:43"}}]}
+[2026-01-04 19:31:48.078] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1868:[0m Dispatched to 1 publisher(s) for db=testdb table=orders
+[2026-01-04 19:31:48.078] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1985:[0m UPDATE testdb.orders: 2 row(s) captured
+[2026-01-04 19:31:48.078] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:2174:[0m [txn:045d935b-efe1-4f66-bc3b-1015d3abed34] XID COMMIT (server_xid=48)
+[2026-01-04 19:31:48.078] [94m[TRACE][0m - [90msrc/core/binlog_stream_modular.c:1856:[0m Dispatching event publisher=file_output txn=045d935b-efe1-4f66-bc3b-1015d3abed34 db=testdb table=COMMIT binlog_file=mysql-bin.000003 position=2723 : {"type":"COMMIT","txn":"045d935b-efe1-4f66-bc3b-1015d3abed34","db":"testdb","xid":48}
+[2026-01-04 19:31:48.078] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1868:[0m Dispatched to 1 publisher(s) for db=testdb table=COMMIT
+[2026-01-04 19:31:48.078] [94m[TRACE][0m - [90msrc/core/publisher_loader.c:60:[0m Published event to file: txn=045d935b-efe1-4f66-bc3b-1015d3abed34, db=testdb, table=orders
+[2026-01-04 19:31:48.078] [94m[TRACE][0m - [90msrc/core/publisher_loader.c:60:[0m Published event to file: txn=045d935b-efe1-4f66-bc3b-1015d3abed34, db=testdb, table=COMMIT
+[2026-01-04 19:31:48.212] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1784:[0m [txn:6eccfa52-32f2-418b-98ec-21b5bedcfbb1] BEGIN transaction
+[2026-01-04 19:31:48.212] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1796:[0m [txn:6eccfa52-32f2-418b-98ec-21b5bedcfbb1] BEGIN db=testdb: BEGIN
+[2026-01-04 19:31:48.212] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:872:[0m Using cached column names for testdb.orders
+[2026-01-04 19:31:48.212] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1137:[0m [txn:6eccfa52-32f2-418b-98ec-21b5bedcfbb1] TABLE_MAP tid=93 db='testdb' table='orders' ncols=7 (table_changed=0)
+[2026-01-04 19:31:48.212] [94m[TRACE][0m - [90msrc/core/binlog_stream_modular.c:1856:[0m Dispatching event publisher=file_output txn=6eccfa52-32f2-418b-98ec-21b5bedcfbb1 db=testdb table=orders binlog_file=mysql-bin.000003 position=3077 : {"type":"UPDATE","txn":"6eccfa52-32f2-418b-98ec-21b5bedcfbb1","db":"testdb","table":"orders","primary_key":["order_id"],"rows":[{"before":{"order_id":4,"user_id":4,"product_name":"Monitor","quantity":1,"total_amount":"299.99","order_status":"processing","created_at":"2026-01-04 19:31:43"},"after":{"order_id":4,"user_id":4,"product_name":"Monitor","quantity":1,"total_amount":"269.99","order_status":"shipped","created_at":"2026-01-04 19:31:43"}}]}
+[2026-01-04 19:31:48.212] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1868:[0m Dispatched to 1 publisher(s) for db=testdb table=orders
+[2026-01-04 19:31:48.212] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1985:[0m UPDATE testdb.orders: 1 row(s) captured
+[2026-01-04 19:31:48.212] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:2174:[0m [txn:6eccfa52-32f2-418b-98ec-21b5bedcfbb1] XID COMMIT (server_xid=52)
+[2026-01-04 19:31:48.212] [94m[TRACE][0m - [90msrc/core/binlog_stream_modular.c:1856:[0m Dispatching event publisher=file_output txn=6eccfa52-32f2-418b-98ec-21b5bedcfbb1 db=testdb table=COMMIT binlog_file=mysql-bin.000003 position=3108 : {"type":"COMMIT","txn":"6eccfa52-32f2-418b-98ec-21b5bedcfbb1","db":"testdb","xid":52}
+[2026-01-04 19:31:48.212] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1868:[0m Dispatched to 1 publisher(s) for db=testdb table=COMMIT
+[2026-01-04 19:31:48.212] [94m[TRACE][0m - [90msrc/core/publisher_loader.c:60:[0m Published event to file: txn=6eccfa52-32f2-418b-98ec-21b5bedcfbb1, db=testdb, table=orders
+[2026-01-04 19:31:48.212] [94m[TRACE][0m - [90msrc/core/publisher_loader.c:60:[0m Published event to file: txn=6eccfa52-32f2-418b-98ec-21b5bedcfbb1, db=testdb, table=COMMIT
+[2026-01-04 19:31:52.669] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1784:[0m [txn:854dcaf7-3880-495f-8c13-2afe5759f7bc] BEGIN transaction
+[2026-01-04 19:31:52.669] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1796:[0m [txn:854dcaf7-3880-495f-8c13-2afe5759f7bc] BEGIN db=testdb: BEGIN
+[2026-01-04 19:31:52.669] [94m[TRACE][0m - [90msrc/core/binlog_stream_modular.c:909:[0m Fetched 4 column names for testdb.events
+[2026-01-04 19:31:52.669] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1137:[0m [txn:854dcaf7-3880-495f-8c13-2afe5759f7bc] TABLE_MAP tid=94 db='testdb' table='events' ncols=4 (table_changed=1)
+[2026-01-04 19:31:52.669] [94m[TRACE][0m - [90msrc/core/binlog_stream_modular.c:1856:[0m Dispatching event publisher=file_output txn=854dcaf7-3880-495f-8c13-2afe5759f7bc db=testdb table=events binlog_file=mysql-bin.000003 position=3432 : {"type":"INSERT","txn":"854dcaf7-3880-495f-8c13-2afe5759f7bc","db":"testdb","table":"events","primary_key":["event_id"],"rows":[{"event_id":5,"event_type":"bulk_event_1","event_data":"0x00020024001200050017000900050100072000626174636874696d657374616d70d0725a69","created_at":"2026-01-04 19:31:52"}]}
+[2026-01-04 19:31:52.669] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1868:[0m Dispatched to 1 publisher(s) for db=testdb table=events
+[2026-01-04 19:31:52.669] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1930:[0m INSERT testdb.events: 1 row(s) captured
+[2026-01-04 19:31:52.669] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:2174:[0m [txn:854dcaf7-3880-495f-8c13-2afe5759f7bc] XID COMMIT (server_xid=63)
+[2026-01-04 19:31:52.669] [94m[TRACE][0m - [90msrc/core/binlog_stream_modular.c:1856:[0m Dispatching event publisher=file_output txn=854dcaf7-3880-495f-8c13-2afe5759f7bc db=testdb table=COMMIT binlog_file=mysql-bin.000003 position=3463 : {"type":"COMMIT","txn":"854dcaf7-3880-495f-8c13-2afe5759f7bc","db":"testdb","xid":63}
+[2026-01-04 19:31:52.669] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1868:[0m Dispatched to 1 publisher(s) for db=testdb table=COMMIT
+[2026-01-04 19:31:52.669] [94m[TRACE][0m - [90msrc/core/publisher_loader.c:60:[0m Published event to file: txn=854dcaf7-3880-495f-8c13-2afe5759f7bc, db=testdb, table=events
+[2026-01-04 19:31:52.669] [94m[TRACE][0m - [90msrc/core/publisher_loader.c:60:[0m Published event to file: txn=854dcaf7-3880-495f-8c13-2afe5759f7bc, db=testdb, table=COMMIT
+[2026-01-04 19:31:52.799] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1784:[0m [txn:3fa3abd8-ac41-4ae0-930e-767273e6d3ac] BEGIN transaction
+[2026-01-04 19:31:52.799] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1796:[0m [txn:3fa3abd8-ac41-4ae0-930e-767273e6d3ac] BEGIN db=testdb: BEGIN
+[2026-01-04 19:31:52.799] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:872:[0m Using cached column names for testdb.events
+[2026-01-04 19:31:52.799] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1137:[0m [txn:3fa3abd8-ac41-4ae0-930e-767273e6d3ac] TABLE_MAP tid=94 db='testdb' table='events' ncols=4 (table_changed=0)
+[2026-01-04 19:31:52.799] [94m[TRACE][0m - [90msrc/core/binlog_stream_modular.c:1856:[0m Dispatching event publisher=file_output txn=3fa3abd8-ac41-4ae0-930e-767273e6d3ac db=testdb table=events binlog_file=mysql-bin.000003 position=3787 : {"type":"INSERT","txn":"3fa3abd8-ac41-4ae0-930e-767273e6d3ac","db":"testdb","table":"events","primary_key":["event_id"],"rows":[{"event_id":6,"event_type":"bulk_event_2","event_data":"0x00020024001200050017000900050200072000626174636874696d657374616d70d0725a69","created_at":"2026-01-04 19:31:52"}]}
+[2026-01-04 19:31:52.799] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1868:[0m Dispatched to 1 publisher(s) for db=testdb table=events
+[2026-01-04 19:31:52.799] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1930:[0m INSERT testdb.events: 1 row(s) captured
+[2026-01-04 19:31:52.799] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:2174:[0m [txn:3fa3abd8-ac41-4ae0-930e-767273e6d3ac] XID COMMIT (server_xid=67)
+[2026-01-04 19:31:52.799] [94m[TRACE][0m - [90msrc/core/binlog_stream_modular.c:1856:[0m Dispatching event publisher=file_output txn=3fa3abd8-ac41-4ae0-930e-767273e6d3ac db=testdb table=COMMIT binlog_file=mysql-bin.000003 position=3818 : {"type":"COMMIT","txn":"3fa3abd8-ac41-4ae0-930e-767273e6d3ac","db":"testdb","xid":67}
+[2026-01-04 19:31:52.799] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1868:[0m Dispatched to 1 publisher(s) for db=testdb table=COMMIT
+[2026-01-04 19:31:52.799] [94m[TRACE][0m - [90msrc/core/publisher_loader.c:60:[0m Published event to file: txn=3fa3abd8-ac41-4ae0-930e-767273e6d3ac, db=testdb, table=events
+[2026-01-04 19:31:52.799] [94m[TRACE][0m - [90msrc/core/publisher_loader.c:60:[0m Published event to file: txn=3fa3abd8-ac41-4ae0-930e-767273e6d3ac, db=testdb, table=COMMIT
+[2026-01-04 19:31:52.923] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1784:[0m [txn:e51d1f8b-521a-4f4e-9c14-9a8f04eefc27] BEGIN transaction
+[2026-01-04 19:31:52.923] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1796:[0m [txn:e51d1f8b-521a-4f4e-9c14-9a8f04eefc27] BEGIN db=testdb: BEGIN
+[2026-01-04 19:31:52.923] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:872:[0m Using cached column names for testdb.events
+[2026-01-04 19:31:52.923] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1137:[0m [txn:e51d1f8b-521a-4f4e-9c14-9a8f04eefc27] TABLE_MAP tid=94 db='testdb' table='events' ncols=4 (table_changed=0)
+[2026-01-04 19:31:52.923] [94m[TRACE][0m - [90msrc/core/binlog_stream_modular.c:1856:[0m Dispatching event publisher=file_output txn=e51d1f8b-521a-4f4e-9c14-9a8f04eefc27 db=testdb table=events binlog_file=mysql-bin.000003 position=4142 : {"type":"INSERT","txn":"e51d1f8b-521a-4f4e-9c14-9a8f04eefc27","db":"testdb","table":"events","primary_key":["event_id"],"rows":[{"event_id":7,"event_type":"bulk_event_3","event_data":"0x00020024001200050017000900050300072000626174636874696d657374616d70d0725a69","created_at":"2026-01-04 19:31:52"}]}
+[2026-01-04 19:31:52.923] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1868:[0m Dispatched to 1 publisher(s) for db=testdb table=events
+[2026-01-04 19:31:52.923] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1930:[0m INSERT testdb.events: 1 row(s) captured
+[2026-01-04 19:31:52.923] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:2174:[0m [txn:e51d1f8b-521a-4f4e-9c14-9a8f04eefc27] XID COMMIT (server_xid=70)
+[2026-01-04 19:31:52.923] [94m[TRACE][0m - [90msrc/core/binlog_stream_modular.c:1856:[0m Dispatching event publisher=file_output txn=e51d1f8b-521a-4f4e-9c14-9a8f04eefc27 db=testdb table=COMMIT binlog_file=mysql-bin.000003 position=4173 : {"type":"COMMIT","txn":"e51d1f8b-521a-4f4e-9c14-9a8f04eefc27","db":"testdb","xid":70}
+[2026-01-04 19:31:52.923] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1868:[0m Dispatched to 1 publisher(s) for db=testdb table=COMMIT
+[2026-01-04 19:31:52.923] [94m[TRACE][0m - [90msrc/core/publisher_loader.c:60:[0m Published event to file: txn=e51d1f8b-521a-4f4e-9c14-9a8f04eefc27, db=testdb, table=events
+[2026-01-04 19:31:52.923] [94m[TRACE][0m - [90msrc/core/publisher_loader.c:60:[0m Published event to file: txn=e51d1f8b-521a-4f4e-9c14-9a8f04eefc27, db=testdb, table=COMMIT
+[2026-01-04 19:31:53.036] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1784:[0m [txn:6122ed48-b3b9-4b14-8737-61bdc520babb] BEGIN transaction
+[2026-01-04 19:31:53.036] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1796:[0m [txn:6122ed48-b3b9-4b14-8737-61bdc520babb] BEGIN db=testdb: BEGIN
+[2026-01-04 19:31:53.036] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:872:[0m Using cached column names for testdb.events
+[2026-01-04 19:31:53.036] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1137:[0m [txn:6122ed48-b3b9-4b14-8737-61bdc520babb] TABLE_MAP tid=94 db='testdb' table='events' ncols=4 (table_changed=0)
+[2026-01-04 19:31:53.036] [94m[TRACE][0m - [90msrc/core/binlog_stream_modular.c:1856:[0m Dispatching event publisher=file_output txn=6122ed48-b3b9-4b14-8737-61bdc520babb db=testdb table=events binlog_file=mysql-bin.000003 position=4497 : {"type":"INSERT","txn":"6122ed48-b3b9-4b14-8737-61bdc520babb","db":"testdb","table":"events","primary_key":["event_id"],"rows":[{"event_id":8,"event_type":"bulk_event_4","event_data":"0x00020024001200050017000900050400072000626174636874696d657374616d70d0725a69","created_at":"2026-01-04 19:31:53"}]}
+[2026-01-04 19:31:53.036] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1868:[0m Dispatched to 1 publisher(s) for db=testdb table=events
+[2026-01-04 19:31:53.036] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1930:[0m INSERT testdb.events: 1 row(s) captured
+[2026-01-04 19:31:53.036] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:2174:[0m [txn:6122ed48-b3b9-4b14-8737-61bdc520babb] XID COMMIT (server_xid=73)
+[2026-01-04 19:31:53.036] [94m[TRACE][0m - [90msrc/core/binlog_stream_modular.c:1856:[0m Dispatching event publisher=file_output txn=6122ed48-b3b9-4b14-8737-61bdc520babb db=testdb table=COMMIT binlog_file=mysql-bin.000003 position=4528 : {"type":"COMMIT","txn":"6122ed48-b3b9-4b14-8737-61bdc520babb","db":"testdb","xid":73}
+[2026-01-04 19:31:53.036] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1868:[0m Dispatched to 1 publisher(s) for db=testdb table=COMMIT
+[2026-01-04 19:31:53.036] [94m[TRACE][0m - [90msrc/core/publisher_loader.c:60:[0m Published event to file: txn=6122ed48-b3b9-4b14-8737-61bdc520babb, db=testdb, table=events
+[2026-01-04 19:31:53.036] [94m[TRACE][0m - [90msrc/core/publisher_loader.c:60:[0m Published event to file: txn=6122ed48-b3b9-4b14-8737-61bdc520babb, db=testdb, table=COMMIT
+[2026-01-04 19:31:53.148] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1784:[0m [txn:b5e6590f-0bc1-4f21-a7b8-509b8aaf0406] BEGIN transaction
+[2026-01-04 19:31:53.148] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1796:[0m [txn:b5e6590f-0bc1-4f21-a7b8-509b8aaf0406] BEGIN db=testdb: BEGIN
+[2026-01-04 19:31:53.148] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:872:[0m Using cached column names for testdb.events
+[2026-01-04 19:31:53.148] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1137:[0m [txn:b5e6590f-0bc1-4f21-a7b8-509b8aaf0406] TABLE_MAP tid=94 db='testdb' table='events' ncols=4 (table_changed=0)
+[2026-01-04 19:31:53.148] [94m[TRACE][0m - [90msrc/core/binlog_stream_modular.c:1856:[0m Dispatching event publisher=file_output txn=b5e6590f-0bc1-4f21-a7b8-509b8aaf0406 db=testdb table=events binlog_file=mysql-bin.000003 position=4852 : {"type":"INSERT","txn":"b5e6590f-0bc1-4f21-a7b8-509b8aaf0406","db":"testdb","table":"events","primary_key":["event_id"],"rows":[{"event_id":9,"event_type":"bulk_event_5","event_data":"0x00020024001200050017000900050500072000626174636874696d657374616d70d1725a69","created_at":"2026-01-04 19:31:53"}]}
+[2026-01-04 19:31:53.148] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1868:[0m Dispatched to 1 publisher(s) for db=testdb table=events
+[2026-01-04 19:31:53.148] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1930:[0m INSERT testdb.events: 1 row(s) captured
+[2026-01-04 19:31:53.148] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:2174:[0m [txn:b5e6590f-0bc1-4f21-a7b8-509b8aaf0406] XID COMMIT (server_xid=76)
+[2026-01-04 19:31:53.148] [94m[TRACE][0m - [90msrc/core/binlog_stream_modular.c:1856:[0m Dispatching event publisher=file_output txn=b5e6590f-0bc1-4f21-a7b8-509b8aaf0406 db=testdb table=COMMIT binlog_file=mysql-bin.000003 position=4883 : {"type":"COMMIT","txn":"b5e6590f-0bc1-4f21-a7b8-509b8aaf0406","db":"testdb","xid":76}
+[2026-01-04 19:31:53.148] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1868:[0m Dispatched to 1 publisher(s) for db=testdb table=COMMIT
+[2026-01-04 19:31:53.148] [94m[TRACE][0m - [90msrc/core/publisher_loader.c:60:[0m Published event to file: txn=b5e6590f-0bc1-4f21-a7b8-509b8aaf0406, db=testdb, table=events
+[2026-01-04 19:31:53.148] [94m[TRACE][0m - [90msrc/core/publisher_loader.c:60:[0m Published event to file: txn=b5e6590f-0bc1-4f21-a7b8-509b8aaf0406, db=testdb, table=COMMIT
+[2026-01-04 19:31:53.262] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1784:[0m [txn:897360dd-9090-4e22-b4d5-1f00fc2d5102] BEGIN transaction
+[2026-01-04 19:31:53.262] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1796:[0m [txn:897360dd-9090-4e22-b4d5-1f00fc2d5102] BEGIN db=testdb: BEGIN
+[2026-01-04 19:31:53.262] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:872:[0m Using cached column names for testdb.events
+[2026-01-04 19:31:53.262] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1137:[0m [txn:897360dd-9090-4e22-b4d5-1f00fc2d5102] TABLE_MAP tid=94 db='testdb' table='events' ncols=4 (table_changed=0)
+[2026-01-04 19:31:53.262] [94m[TRACE][0m - [90msrc/core/binlog_stream_modular.c:1856:[0m Dispatching event publisher=file_output txn=897360dd-9090-4e22-b4d5-1f00fc2d5102 db=testdb table=events binlog_file=mysql-bin.000003 position=5207 : {"type":"INSERT","txn":"897360dd-9090-4e22-b4d5-1f00fc2d5102","db":"testdb","table":"events","primary_key":["event_id"],"rows":[{"event_id":10,"event_type":"bulk_event_6","event_data":"0x00020024001200050017000900050600072000626174636874696d657374616d70d1725a69","created_at":"2026-01-04 19:31:53"}]}
+[2026-01-04 19:31:53.262] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1868:[0m Dispatched to 1 publisher(s) for db=testdb table=events
+[2026-01-04 19:31:53.262] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1930:[0m INSERT testdb.events: 1 row(s) captured
+[2026-01-04 19:31:53.262] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:2174:[0m [txn:897360dd-9090-4e22-b4d5-1f00fc2d5102] XID COMMIT (server_xid=79)
+[2026-01-04 19:31:53.262] [94m[TRACE][0m - [90msrc/core/binlog_stream_modular.c:1856:[0m Dispatching event publisher=file_output txn=897360dd-9090-4e22-b4d5-1f00fc2d5102 db=testdb table=COMMIT binlog_file=mysql-bin.000003 position=5238 : {"type":"COMMIT","txn":"897360dd-9090-4e22-b4d5-1f00fc2d5102","db":"testdb","xid":79}
+[2026-01-04 19:31:53.262] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1868:[0m Dispatched to 1 publisher(s) for db=testdb table=COMMIT
+[2026-01-04 19:31:53.262] [94m[TRACE][0m - [90msrc/core/publisher_loader.c:60:[0m Published event to file: txn=897360dd-9090-4e22-b4d5-1f00fc2d5102, db=testdb, table=events
+[2026-01-04 19:31:53.262] [94m[TRACE][0m - [90msrc/core/publisher_loader.c:60:[0m Published event to file: txn=897360dd-9090-4e22-b4d5-1f00fc2d5102, db=testdb, table=COMMIT
+[2026-01-04 19:31:53.381] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1784:[0m [txn:929c42fb-fd77-413f-bcd1-0fdb4c981281] BEGIN transaction
+[2026-01-04 19:31:53.381] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1796:[0m [txn:929c42fb-fd77-413f-bcd1-0fdb4c981281] BEGIN db=testdb: BEGIN
+[2026-01-04 19:31:53.381] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:872:[0m Using cached column names for testdb.events
+[2026-01-04 19:31:53.381] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1137:[0m [txn:929c42fb-fd77-413f-bcd1-0fdb4c981281] TABLE_MAP tid=94 db='testdb' table='events' ncols=4 (table_changed=0)
+[2026-01-04 19:31:53.381] [94m[TRACE][0m - [90msrc/core/binlog_stream_modular.c:1856:[0m Dispatching event publisher=file_output txn=929c42fb-fd77-413f-bcd1-0fdb4c981281 db=testdb table=events binlog_file=mysql-bin.000003 position=5562 : {"type":"INSERT","txn":"929c42fb-fd77-413f-bcd1-0fdb4c981281","db":"testdb","table":"events","primary_key":["event_id"],"rows":[{"event_id":11,"event_type":"bulk_event_7","event_data":"0x00020024001200050017000900050700072000626174636874696d657374616d70d1725a69","created_at":"2026-01-04 19:31:53"}]}
+[2026-01-04 19:31:53.381] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1868:[0m Dispatched to 1 publisher(s) for db=testdb table=events
+[2026-01-04 19:31:53.381] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1930:[0m INSERT testdb.events: 1 row(s) captured
+[2026-01-04 19:31:53.381] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:2174:[0m [txn:929c42fb-fd77-413f-bcd1-0fdb4c981281] XID COMMIT (server_xid=82)
+[2026-01-04 19:31:53.381] [94m[TRACE][0m - [90msrc/core/binlog_stream_modular.c:1856:[0m Dispatching event publisher=file_output txn=929c42fb-fd77-413f-bcd1-0fdb4c981281 db=testdb table=COMMIT binlog_file=mysql-bin.000003 position=5593 : {"type":"COMMIT","txn":"929c42fb-fd77-413f-bcd1-0fdb4c981281","db":"testdb","xid":82}
+[2026-01-04 19:31:53.381] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1868:[0m Dispatched to 1 publisher(s) for db=testdb table=COMMIT
+[2026-01-04 19:31:53.381] [94m[TRACE][0m - [90msrc/core/publisher_loader.c:60:[0m Published event to file: txn=929c42fb-fd77-413f-bcd1-0fdb4c981281, db=testdb, table=events
+[2026-01-04 19:31:53.381] [94m[TRACE][0m - [90msrc/core/publisher_loader.c:60:[0m Published event to file: txn=929c42fb-fd77-413f-bcd1-0fdb4c981281, db=testdb, table=COMMIT
+[2026-01-04 19:31:53.504] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1784:[0m [txn:c33e017b-7aa2-4410-9c0f-08790cca0d44] BEGIN transaction
+[2026-01-04 19:31:53.504] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1796:[0m [txn:c33e017b-7aa2-4410-9c0f-08790cca0d44] BEGIN db=testdb: BEGIN
+[2026-01-04 19:31:53.504] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:872:[0m Using cached column names for testdb.events
+[2026-01-04 19:31:53.504] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1137:[0m [txn:c33e017b-7aa2-4410-9c0f-08790cca0d44] TABLE_MAP tid=94 db='testdb' table='events' ncols=4 (table_changed=0)
+[2026-01-04 19:31:53.504] [94m[TRACE][0m - [90msrc/core/binlog_stream_modular.c:1856:[0m Dispatching event publisher=file_output txn=c33e017b-7aa2-4410-9c0f-08790cca0d44 db=testdb table=events binlog_file=mysql-bin.000003 position=5917 : {"type":"INSERT","txn":"c33e017b-7aa2-4410-9c0f-08790cca0d44","db":"testdb","table":"events","primary_key":["event_id"],"rows":[{"event_id":12,"event_type":"bulk_event_8","event_data":"0x00020024001200050017000900050800072000626174636874696d657374616d70d1725a69","created_at":"2026-01-04 19:31:53"}]}
+[2026-01-04 19:31:53.504] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1868:[0m Dispatched to 1 publisher(s) for db=testdb table=events
+[2026-01-04 19:31:53.504] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1930:[0m INSERT testdb.events: 1 row(s) captured
+[2026-01-04 19:31:53.504] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:2174:[0m [txn:c33e017b-7aa2-4410-9c0f-08790cca0d44] XID COMMIT (server_xid=85)
+[2026-01-04 19:31:53.504] [94m[TRACE][0m - [90msrc/core/binlog_stream_modular.c:1856:[0m Dispatching event publisher=file_output txn=c33e017b-7aa2-4410-9c0f-08790cca0d44 db=testdb table=COMMIT binlog_file=mysql-bin.000003 position=5948 : {"type":"COMMIT","txn":"c33e017b-7aa2-4410-9c0f-08790cca0d44","db":"testdb","xid":85}
+[2026-01-04 19:31:53.504] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1868:[0m Dispatched to 1 publisher(s) for db=testdb table=COMMIT
+[2026-01-04 19:31:53.504] [94m[TRACE][0m - [90msrc/core/publisher_loader.c:60:[0m Published event to file: txn=c33e017b-7aa2-4410-9c0f-08790cca0d44, db=testdb, table=events
+[2026-01-04 19:31:53.504] [94m[TRACE][0m - [90msrc/core/publisher_loader.c:60:[0m Published event to file: txn=c33e017b-7aa2-4410-9c0f-08790cca0d44, db=testdb, table=COMMIT
+[2026-01-04 19:31:53.626] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1784:[0m [txn:633ec36f-5f12-48bd-84a5-1b2b659017a2] BEGIN transaction
+[2026-01-04 19:31:53.626] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1796:[0m [txn:633ec36f-5f12-48bd-84a5-1b2b659017a2] BEGIN db=testdb: BEGIN
+[2026-01-04 19:31:53.626] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:872:[0m Using cached column names for testdb.events
+[2026-01-04 19:31:53.626] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1137:[0m [txn:633ec36f-5f12-48bd-84a5-1b2b659017a2] TABLE_MAP tid=94 db='testdb' table='events' ncols=4 (table_changed=0)
+[2026-01-04 19:31:53.627] [94m[TRACE][0m - [90msrc/core/binlog_stream_modular.c:1856:[0m Dispatching event publisher=file_output txn=633ec36f-5f12-48bd-84a5-1b2b659017a2 db=testdb table=events binlog_file=mysql-bin.000003 position=6272 : {"type":"INSERT","txn":"633ec36f-5f12-48bd-84a5-1b2b659017a2","db":"testdb","table":"events","primary_key":["event_id"],"rows":[{"event_id":13,"event_type":"bulk_event_9","event_data":"0x00020024001200050017000900050900072000626174636874696d657374616d70d1725a69","created_at":"2026-01-04 19:31:53"}]}
+[2026-01-04 19:31:53.627] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1868:[0m Dispatched to 1 publisher(s) for db=testdb table=events
+[2026-01-04 19:31:53.627] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1930:[0m INSERT testdb.events: 1 row(s) captured
+[2026-01-04 19:31:53.627] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:2174:[0m [txn:633ec36f-5f12-48bd-84a5-1b2b659017a2] XID COMMIT (server_xid=88)
+[2026-01-04 19:31:53.627] [94m[TRACE][0m - [90msrc/core/binlog_stream_modular.c:1856:[0m Dispatching event publisher=file_output txn=633ec36f-5f12-48bd-84a5-1b2b659017a2 db=testdb table=COMMIT binlog_file=mysql-bin.000003 position=6303 : {"type":"COMMIT","txn":"633ec36f-5f12-48bd-84a5-1b2b659017a2","db":"testdb","xid":88}
+[2026-01-04 19:31:53.627] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1868:[0m Dispatched to 1 publisher(s) for db=testdb table=COMMIT
+[2026-01-04 19:31:53.627] [94m[TRACE][0m - [90msrc/core/publisher_loader.c:60:[0m Published event to file: txn=633ec36f-5f12-48bd-84a5-1b2b659017a2, db=testdb, table=events
+[2026-01-04 19:31:53.627] [94m[TRACE][0m - [90msrc/core/publisher_loader.c:60:[0m Published event to file: txn=633ec36f-5f12-48bd-84a5-1b2b659017a2, db=testdb, table=COMMIT
+[2026-01-04 19:31:53.745] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1784:[0m [txn:96808295-2bf4-4b57-b166-c42633c67fe3] BEGIN transaction
+[2026-01-04 19:31:53.745] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1796:[0m [txn:96808295-2bf4-4b57-b166-c42633c67fe3] BEGIN db=testdb: BEGIN
+[2026-01-04 19:31:53.745] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:872:[0m Using cached column names for testdb.events
+[2026-01-04 19:31:53.745] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1137:[0m [txn:96808295-2bf4-4b57-b166-c42633c67fe3] TABLE_MAP tid=94 db='testdb' table='events' ncols=4 (table_changed=0)
+[2026-01-04 19:31:53.745] [94m[TRACE][0m - [90msrc/core/binlog_stream_modular.c:1856:[0m Dispatching event publisher=file_output txn=96808295-2bf4-4b57-b166-c42633c67fe3 db=testdb table=events binlog_file=mysql-bin.000003 position=6628 : {"type":"INSERT","txn":"96808295-2bf4-4b57-b166-c42633c67fe3","db":"testdb","table":"events","primary_key":["event_id"],"rows":[{"event_id":14,"event_type":"bulk_event_10","event_data":"0x00020024001200050017000900050a00072000626174636874696d657374616d70d1725a69","created_at":"2026-01-04 19:31:53"}]}
+[2026-01-04 19:31:53.745] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1868:[0m Dispatched to 1 publisher(s) for db=testdb table=events
+[2026-01-04 19:31:53.745] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1930:[0m INSERT testdb.events: 1 row(s) captured
+[2026-01-04 19:31:53.745] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:2174:[0m [txn:96808295-2bf4-4b57-b166-c42633c67fe3] XID COMMIT (server_xid=91)
+[2026-01-04 19:31:53.745] [94m[TRACE][0m - [90msrc/core/binlog_stream_modular.c:1856:[0m Dispatching event publisher=file_output txn=96808295-2bf4-4b57-b166-c42633c67fe3 db=testdb table=COMMIT binlog_file=mysql-bin.000003 position=6659 : {"type":"COMMIT","txn":"96808295-2bf4-4b57-b166-c42633c67fe3","db":"testdb","xid":91}
+[2026-01-04 19:31:53.745] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1868:[0m Dispatched to 1 publisher(s) for db=testdb table=COMMIT
+[2026-01-04 19:31:53.745] [94m[TRACE][0m - [90msrc/core/publisher_loader.c:60:[0m Published event to file: txn=96808295-2bf4-4b57-b166-c42633c67fe3, db=testdb, table=events
+[2026-01-04 19:31:53.745] [94m[TRACE][0m - [90msrc/core/publisher_loader.c:60:[0m Published event to file: txn=96808295-2bf4-4b57-b166-c42633c67fe3, db=testdb, table=COMMIT
+[2026-01-04 19:31:55.914] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1784:[0m [txn:f27d19eb-3d84-42e2-bd72-6ad4b3d4f861] BEGIN transaction
+[2026-01-04 19:31:55.914] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1796:[0m [txn:f27d19eb-3d84-42e2-bd72-6ad4b3d4f861] BEGIN db=testdb: BEGIN
+[2026-01-04 19:31:55.915] [94m[TRACE][0m - [90msrc/core/binlog_stream_modular.c:909:[0m Fetched 7 column names for testdb.users
+[2026-01-04 19:31:55.915] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1137:[0m [txn:f27d19eb-3d84-42e2-bd72-6ad4b3d4f861] TABLE_MAP tid=89 db='testdb' table='users' ncols=7 (table_changed=1)
+[2026-01-04 19:31:55.916] [94m[TRACE][0m - [90msrc/core/binlog_stream_modular.c:856:[0m Loaded 3 ENUM values for testdb.users.status
+[2026-01-04 19:31:55.916] [94m[TRACE][0m - [90msrc/core/binlog_stream_modular.c:1856:[0m Dispatching event publisher=file_output txn=f27d19eb-3d84-42e2-bd72-6ad4b3d4f861 db=testdb table=users binlog_file=mysql-bin.000003 position=6970 : {"type":"INSERT","txn":"f27d19eb-3d84-42e2-bd72-6ad4b3d4f861","db":"testdb","table":"users","primary_key":["id"],"rows":[{"id":6,"username":"frank","email":"frank@example.com","status":"active","balance":"500.00","created_at":"2026-01-04 19:31:55","updated_at":"2026-01-04 19:31:55"}]}
+[2026-01-04 19:31:55.916] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1868:[0m Dispatched to 1 publisher(s) for db=testdb table=users
+[2026-01-04 19:31:55.916] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1930:[0m INSERT testdb.users: 1 row(s) captured
+[2026-01-04 19:31:55.916] [94m[TRACE][0m - [90msrc/core/publisher_loader.c:60:[0m Published event to file: txn=f27d19eb-3d84-42e2-bd72-6ad4b3d4f861, db=testdb, table=users
+[2026-01-04 19:31:55.916] [94m[TRACE][0m - [90msrc/core/binlog_stream_modular.c:909:[0m Fetched 7 column names for testdb.orders
+[2026-01-04 19:31:55.916] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1137:[0m [txn:f27d19eb-3d84-42e2-bd72-6ad4b3d4f861] TABLE_MAP tid=93 db='testdb' table='orders' ncols=7 (table_changed=1)
+[2026-01-04 19:31:55.916] [94m[TRACE][0m - [90msrc/core/binlog_stream_modular.c:1856:[0m Dispatching event publisher=file_output txn=f27d19eb-3d84-42e2-bd72-6ad4b3d4f861 db=testdb table=orders binlog_file=mysql-bin.000003 position=7121 : {"type":"INSERT","txn":"f27d19eb-3d84-42e2-bd72-6ad4b3d4f861","db":"testdb","table":"orders","primary_key":["order_id"],"rows":[{"order_id":7,"user_id":6,"product_name":"Welcome Gift","quantity":1,"total_amount":"0.00","order_status":"pending","created_at":"2026-01-04 19:31:55"}]}
+[2026-01-04 19:31:55.916] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1868:[0m Dispatched to 1 publisher(s) for db=testdb table=orders
+[2026-01-04 19:31:55.916] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1930:[0m INSERT testdb.orders: 1 row(s) captured
+[2026-01-04 19:31:55.916] [94m[TRACE][0m - [90msrc/core/publisher_loader.c:60:[0m Published event to file: txn=f27d19eb-3d84-42e2-bd72-6ad4b3d4f861, db=testdb, table=orders
+[2026-01-04 19:31:55.916] [94m[TRACE][0m - [90msrc/core/binlog_stream_modular.c:909:[0m Fetched 7 column names for testdb.users
+[2026-01-04 19:31:55.916] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1137:[0m [txn:f27d19eb-3d84-42e2-bd72-6ad4b3d4f861] TABLE_MAP tid=89 db='testdb' table='users' ncols=7 (table_changed=1)
+[2026-01-04 19:31:55.917] [94m[TRACE][0m - [90msrc/core/binlog_stream_modular.c:856:[0m Loaded 3 ENUM values for testdb.users.status
+[2026-01-04 19:31:55.917] [94m[TRACE][0m - [90msrc/core/binlog_stream_modular.c:1856:[0m Dispatching event publisher=file_output txn=f27d19eb-3d84-42e2-bd72-6ad4b3d4f861 db=testdb table=users binlog_file=mysql-bin.000003 position=7319 : {"type":"UPDATE","txn":"f27d19eb-3d84-42e2-bd72-6ad4b3d4f861","db":"testdb","table":"users","primary_key":["id"],"rows":[{"before":{"id":1,"username":"alice","email":"alice@example.com","status":"active","balance":"1100.00","created_at":"2026-01-04 19:31:15","updated_at":"2026-01-04 19:31:41"},"after":{"id":1,"username":"alice","email":"alice@example.com","status":"active","balance":"1050.00","created_at":"2026-01-04 19:31:15","updated_at":"2026-01-04 19:31:55"}}]}
+[2026-01-04 19:31:55.917] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1868:[0m Dispatched to 1 publisher(s) for db=testdb table=users
+[2026-01-04 19:31:55.917] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1985:[0m UPDATE testdb.users: 1 row(s) captured
+[2026-01-04 19:31:55.917] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:2174:[0m [txn:f27d19eb-3d84-42e2-bd72-6ad4b3d4f861] XID COMMIT (server_xid=95)
+[2026-01-04 19:31:55.917] [94m[TRACE][0m - [90msrc/core/binlog_stream_modular.c:1856:[0m Dispatching event publisher=file_output txn=f27d19eb-3d84-42e2-bd72-6ad4b3d4f861 db=testdb table=COMMIT binlog_file=mysql-bin.000003 position=7350 : {"type":"COMMIT","txn":"f27d19eb-3d84-42e2-bd72-6ad4b3d4f861","db":"testdb","xid":95}
+[2026-01-04 19:31:55.917] [36m[DEBUG][0m - [90msrc/core/binlog_stream_modular.c:1868:[0m Dispatched to 1 publisher(s) for db=testdb table=COMMIT
+[2026-01-04 19:31:55.917] [94m[TRACE][0m - [90msrc/core/publisher_loader.c:60:[0m Published event to file: txn=f27d19eb-3d84-42e2-bd72-6ad4b3d4f861, db=testdb, table=users
+[2026-01-04 19:31:55.917] [94m[TRACE][0m - [90msrc/core/publisher_loader.c:60:[0m Published event to file: txn=f27d19eb-3d84-42e2-bd72-6ad4b3d4f861, db=testdb, table=COMMIT
