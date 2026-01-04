@@ -1,10 +1,10 @@
 # Binlog Streamer
 
-A high-performance MySQL binlog streaming application with a flexible plugin architecture.
+A high-performance MySQL/MariaDB and PGSQL CDC streaming application with a flexible plugin architecture.
 
 ## Features
 
-- Real-time MySQL binlog streaming
+- Real-time MySQL/MariaDB and PGSQL binlog streaming
 - Plugin-based publisher architecture
 - Support for multiple output formats (File, ZeroMQ, Kafka, Redis, Webhooks, Syslog)
 - Scriptable publishers (Lua, Python, Java)
@@ -39,6 +39,7 @@ make install       # Install system-wide
 ## Running
 
 ```bash
-./build/bin/binlog_stream config/config.json
+./build/bin/binlog_stream config/mysql.config.json
+./build/bin/pg_stream config/pg.config.json
 ```
 
