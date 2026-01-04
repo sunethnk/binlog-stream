@@ -11,8 +11,8 @@ data/pg_checkpoint.dat
 data/*.log
 
 #Test Data
-docker/test_output/mysql/*
-docker/test_output/postgres/*
+test_output/mysql/*
+test_output/postgres/*
 
 # Python
 __pycache__/
